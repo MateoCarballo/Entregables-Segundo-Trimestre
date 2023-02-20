@@ -31,10 +31,10 @@ public class Enumeracion {
     };
 
 
-    String[] marcasFurgoneta = {"Mercedes-Benz", "Volkswagen", "Ford", "Peugeot", "Renault"};
+    final String[] marcasFurgoneta = {"Mercedes-Benz", "Volkswagen", "Ford", "Peugeot", "Renault"};
 
 
-    String[][] modelosFurgoneta = {
+    final String[][] modelosFurgoneta = {
             {"Sprinter", "Vito", "Citan", "Marco Polo", "X-Class"},
             {"Transporter", "Crafter", "Caddy", "Amarok", "California"},
             {"Transit", "Custom", "Connect", "Courier", "Ranger"},
@@ -43,10 +43,10 @@ public class Enumeracion {
     };
 
 
-    String[] marcasCamion = {"Volvo", "Scania", "Mercedes-Benz", "DAF", "MAN"};
+    final String[] marcasCamion = {"Volvo", "Scania", "Mercedes-Benz", "DAF", "MAN"};
 
     
-    String[][] modelosCamion = {
+    final String[][] modelosCamion = {
             {"FH16", "FM", "FE", "FL", "VHD"},
             {"R-Series", "S-Series", "P-Series", "G-Series", "L-Series"},
             {"Actros", "Atego", "Antos", "Econic", "Unimog"},
