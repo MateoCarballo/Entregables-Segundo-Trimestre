@@ -1,5 +1,7 @@
 package Empresas;
 
+import Vehiculos.Vehiculo;
+
 import java.util.ArrayList;
 
 public class Concesionario extends Empresa{
@@ -15,8 +17,8 @@ public class Concesionario extends Empresa{
         super(nombreEmpresa, cif, cuentaSS, url, razonSocial, direccionPostal, numeroTelefono1, emailcorporativo1, ip1);
     }
 
-    public static void añadirMoto(){
-
+    public static void añadirMoto(Vehiculo miMoto){
+        vehiculosConcesionario.add(miMoto);
     }
     public static void añadirCoche(){
 

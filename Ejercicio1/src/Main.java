@@ -1,5 +1,7 @@
 import Empresas.Concesionario;
 import Empresas.Empresa;
+import Vehiculos.Moto;
+import Vehiculos.Vehiculo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,23 +51,12 @@ public class Main {
 
                     entradaTeclado=br.readLine();
                     switch(Integer.parseInt(entradaTeclado)){
-                        case 1->{
-                            Concesionario.verVehiculos();
-                        }
-                        case 2 ->{
-                            Concesionario.verMotos();
-                        }
-                        case 3 ->{
-                            Concesionario.verCoches();
-                        }
-                        case 4 ->{
-                            Concesionario.verFurgonetas();
-                        }
-                        case 5 ->{
-                            Concesionario.verCamiones();
-                        }
+                        case 1-> Concesionario.verVehiculos();
+                        case 2 -> Concesionario.verMotos();
+                        case 3 -> Concesionario.verCoches();
+                        case 4 -> Concesionario.verFurgonetas();
+                        case 5 -> Concesionario.verCamiones();
                     }
-
                 }
                 case 2 ->{
                     System.out.println("""
@@ -80,18 +71,30 @@ public class Main {
 
                     entradaTeclado=br.readLine();
                     switch(Integer.parseInt(entradaTeclado)){
-                        case 1->{
-                            Concesionario.añadirMoto();
+                        case 1-> {
+                            System.out.println("Marca?");
+                            String marca = br.readLine();
+                            System.out.println("Modelo?");
+                            String modelo = br.readLine();
+                            System.out.println("Fecha de matriculacion?");
+                            String fechaMatriculacion = br.readLine();
+                            System.out.println("P.V.P.?");
+                            int pvp = Integer.parseInt(br.readLine());
+                            System.out.println("Peso?");
+                            int peso = Integer.parseInt(br.readLine());
+                            //Propiedades específicas de la clase moto
+                            System.out.println("Tipo de moto?(Naked,custom,...)");
+                            String tipodeMoto = br.readLine();
+                            System.out.println("Cilindrada?");
+                            Vehiculo motoAñadida = new Moto(marca, modelo, fechaMatriculacion,
+                                    "fechaEntradaConcesionario", pvp, peso);
+
+                            Concesionario.añadirMoto(motoAñadida);
                         }
-                        case 2 ->{
-                            Concesionario.añadirCoche();
-                        }
-                        case 3 ->{
-                            Concesionario.añadirFurgoneta();
-                        }
-                        case 4 ->{
-                            Concesionario.añadirCamion();
-                        }
+                        case 2 ->Concesionario.añadirCoche();
+
+                        case 3 ->Concesionario.añadirFurgoneta();
+                        case 4 ->Concesionario.añadirCamion();
                     }
                 }
                 case 3 ->{

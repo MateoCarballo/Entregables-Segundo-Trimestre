@@ -11,7 +11,7 @@ public class Vehiculo {
     private String tipodeCarnet;
     private int peso;
 
-    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso) {
+    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, int precio, int peso) {
         this.marca = marca;
         this.modelo = modelo;
         this.combustible = combustible;
