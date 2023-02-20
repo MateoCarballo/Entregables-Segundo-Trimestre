@@ -40,4 +40,11 @@ public class Concesionario extends Empresa{
     public static void verCamiones(){
 
     }
+    public static void venderVehiculo(){
+
+    }
+
+    public static void verEstadisticasVehiculo(){
+        
+    }
 }

@@ -7,7 +7,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         boolean continuar = true;
-        int entradaTeclado;
+        String  entradaTeclado ="";
 
         Empresa miConcesionario = new Concesionario("Rías Baixas","123456789",
                 "ES-34-5678-00-123456789","httpss//www.mipaginaweb.com",
@@ -29,9 +29,9 @@ public class Main {
                     /*
                     Pendiente introducir los metodos que vendran dados por la clase empresa
                      */
-            entradaTeclado=Integer.parseInt(br.readLine());
+            entradaTeclado=br.readLine();
 
-            switch (entradaTeclado){
+            switch (Integer.parseInt(entradaTeclado)){
                 case 1 ->{
                     System.out.println("""
                                 Elige una opcion:
@@ -44,8 +44,8 @@ public class Main {
 
                     //TODO comprobar que introducimos valores validos
 
-                    entradaTeclado=Integer.parseInt(br.readLine());
-                    switch(entradaTeclado){
+                    entradaTeclado=br.readLine();
+                    switch(Integer.parseInt(entradaTeclado)){
                         case 1->{
                             Concesionario.verVehiculos();
                         }
@@ -75,8 +75,8 @@ public class Main {
                             """);
                     //TODO comprobar que introducimos valores validos
 
-                    entradaTeclado=Integer.parseInt(br.readLine());
-                    switch(entradaTeclado){
+                    entradaTeclado=br.readLine();
+                    switch(Integer.parseInt(entradaTeclado)){
                         case 1->{
                             Concesionario.añadirMoto();
                         }
@@ -92,9 +92,17 @@ public class Main {
                     }
                     }
                 case 3 ->{
-
+                    System.out.println("Introduce la matricula del vehiculo a vender(1234ABC)");
+                    entradaTeclado=br.readLine();
+                    Concesionario.venderVehiculo();
                     }
 
+                case 4 ->{
+                    System.out.println("Introduce la matricula del vehiculo a consultar(1234ABC)");
+                    entradaTeclado=br.readLine();
+                    Concesionario.verEstadisticasVehiculo();
+
+                }
 
             }
         }while(continuar);
