@@ -5,15 +5,17 @@ public class Vehiculo {
     private String fechaMatriculacion;
     private String fechaEntradaConcesionario;
 
+    private int precio;
     private String tipodeCarnet;
     private int peso;
 
-    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int peso) {
+    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso) {
         this.marca = marca;
         this.modelo = modelo;
         this.combustible = combustible;
         this.fechaMatriculacion = fechaMatriculacion;
         this.fechaEntradaConcesionario = fechaEntradaConcesionario;
+        this.precio = precio;
         this.peso = peso;
     }
 
