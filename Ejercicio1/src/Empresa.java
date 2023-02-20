@@ -1,4 +1,5 @@
 public class Empresa {
+    private String nombreEmpresa;
     private String cif;
     private String cuentaSS;
     private String url;
@@ -8,7 +9,8 @@ public class Empresa {
     private String emailcorporativo1;
     private String ip1;
 
-    public Empresa(String cif, String cuentaSS, String url, String razonSocial, String direccionPostal, String numeroTelefono1, String emailcorporativo1, String ip1) {
+    public Empresa(String nombreEmpresa, String cif, String cuentaSS, String url, String razonSocial, String direccionPostal, String numeroTelefono1, String emailcorporativo1, String ip1) {
+        this.nombreEmpresa = nombreEmpresa;
         this.cif = cif;
         this.cuentaSS = cuentaSS;
         this.url = url;
