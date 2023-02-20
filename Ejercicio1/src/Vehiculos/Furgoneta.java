@@ -15,4 +15,8 @@ public class Furgoneta extends Coche {
     public void setTipodeCarnet(String tipodeCarnet) {
         super.setTipodeCarnet("B");
     }
+
+    public void setPuertaLateralCorredera(boolean puertaLateralCorredera) {
+        this.puertaLateralCorredera = puertaLateralCorredera;
+    }
 }

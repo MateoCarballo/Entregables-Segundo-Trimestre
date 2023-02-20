@@ -20,11 +20,11 @@ public class Concesionario extends Empresa{
     public static void añadirMoto(Vehiculo miMoto){
         vehiculosConcesionario.add(miMoto);
     }
-    public static void añadirCoche(){
-
+    public static void añadirCoche(Vehiculo miCoche){
+        vehiculosConcesionario.add(miCoche);
     }
-    public static void añadirFurgoneta(){
-
+    public static void añadirFurgoneta(Vehiculo miFurgoneta){
+        vehiculosConcesionario.add(miFurgoneta);
     }
     public static void añadirCamion(){
 

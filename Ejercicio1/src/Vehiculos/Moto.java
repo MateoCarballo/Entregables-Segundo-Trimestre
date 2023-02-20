@@ -7,7 +7,7 @@ public class Moto extends Vehiculo {
     private String tipo;
 
     public Moto(String marca, String modelo, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso) {
-        super(marca, modelo, fechaMatriculacion, fechaEntradaConcesionario,precio, peso);
+        super(marca, modelo, fechaMatriculacion, fechaEntradaConcesionario, fechaEntradaConcesionario, precio, peso);
     }
 
     @Override

@@ -1,5 +1,7 @@
 import Empresas.Concesionario;
 import Empresas.Empresa;
+import Vehiculos.Coche;
+import Vehiculos.Furgoneta;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 
@@ -91,9 +93,57 @@ public class Main {
 
                             Concesionario.añadirMoto(motoAñadida);
                         }
-                        case 2 ->Concesionario.añadirCoche();
+                        case 2 -> {
+                            System.out.println("Marca?");
+                            String marca = br.readLine();
+                            System.out.println("Modelo?");
+                            String modelo = br.readLine();
+                            System.out.println("Fecha de matriculacion?");
+                            String fechaMatriculacion = br.readLine();
+                            System.out.println("P.V.P.?");
+                            int pvp = Integer.parseInt(br.readLine());
+                            System.out.println("Peso?");
+                            int peso = Integer.parseInt(br.readLine());
+                            System.out.println("Combustible?");
+                            String combustible = br.readLine();
+                            //Propiedades propias del coche
+                            Coche cocheAñadido= new Coche(marca, modelo,combustible, fechaMatriculacion,
+                                    "fechaEntradaConcesionario", pvp, peso);
+                            //setear el número de puertas
+                            System.out.println("Numero de puertas?");
+                            String numerodePuertas= br.readLine();
 
-                        case 3 ->Concesionario.añadirFurgoneta();
+                            cocheAñadido.setNumerodePuertas(Byte.parseByte(numerodePuertas));
+
+                            Concesionario.añadirCoche(cocheAñadido);
+                        }
+
+                        case 3 ->{System.out.println("Marca?");
+                            String marca = br.readLine();
+                            System.out.println("Modelo?");
+                            String modelo = br.readLine();
+                            System.out.println("Fecha de matriculacion?");
+                            String fechaMatriculacion = br.readLine();
+                            System.out.println("P.V.P.?");
+                            int pvp = Integer.parseInt(br.readLine());
+                            System.out.println("Peso?");
+                            int peso = Integer.parseInt(br.readLine());
+                            System.out.println("Combustible?");
+                            String combustible = br.readLine();
+                            //Propiedades propias de la furgo
+                            Furgoneta furgoAñadida= new Furgoneta(marca, modelo,combustible, fechaMatriculacion,
+                                    "fechaEntradaConcesionario", pvp, peso);
+                            //setear el número de puertas
+                            System.out.println("Puertas correderas?(S/N)");
+
+                            if (br.readLine().equalsIgnoreCase("S")){
+                                furgoAñadida.setPuertaLateralCorredera(true);
+                            }else{
+                                furgoAñadida.setPuertaLateralCorredera(false);
+                            }
+                            Concesionario.añadirFurgoneta(furgoAñadida);
+
+                            Concesionario.añadirFurgoneta();}
                         case 4 ->Concesionario.añadirCamion();
                     }
                 }
