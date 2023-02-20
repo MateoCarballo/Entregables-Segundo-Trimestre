@@ -1,7 +1,10 @@
 public class Furgoneta extends Coche{
 
-    public Furgoneta(String marca, String modelo, String motorizacion, String fechaMatriculacion, String fechaEntradaConcesionario, int peso) {
-        super(marca, modelo, motorizacion, fechaMatriculacion, fechaEntradaConcesionario, peso);
+    boolean puertaLateralCorredera;
+
+
+    public Furgoneta(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int peso) {
+        super(marca, modelo, combustible, fechaMatriculacion, fechaEntradaConcesionario, peso);
     }
     @Override
     public void setTipodeCarnet(String tipodeCarnet) {
