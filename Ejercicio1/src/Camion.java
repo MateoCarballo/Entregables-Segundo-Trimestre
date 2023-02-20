@@ -10,4 +10,9 @@ public class Camion extends Vehiculo{
     public void setTipodeCarnet(String tipodeCarnet) {
         super.setTipodeCarnet("C");
     }
+
+    @Override
+    public void setCombustible(String combustible){
+        super.setCombustible("Diesel");
+    }
 }
