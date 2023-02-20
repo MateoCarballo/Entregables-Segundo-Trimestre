@@ -21,13 +21,25 @@ public class Enumeracion {
 
     final String[] marcasMoto = {"Honda", "Yamaha", "Kawasaki", "Suzuki", "Ducati"};
 
-    
+
     final String[][] modelosMoto = {
             {"CBR1000RR", "CBR650R", "Gold Wing", "Africa Twin", "Super Cub"},
             {"YZF-R1", "YZF-R6", "MT-07", "MT-09", "Niken"},
             {"Ninja H2", "Ninja ZX-10R", "Z900", "Z650", "Vulcan S"},
             {"GSX-R1000", "GSX-S1000", "V-Strom 1050", "SV650", "Burgman 400"},
             {"Panigale V4", "Diavel", "Monster", "Multistrada", "Scrambler"}
+    };
+
+
+    String[] marcasFurgoneta = {"Mercedes-Benz", "Volkswagen", "Ford", "Peugeot", "Renault"};
+
+    
+    String[][] modelosFurgoneta = {
+            {"Sprinter", "Vito", "Citan", "Marco Polo", "X-Class"},
+            {"Transporter", "Crafter", "Caddy", "Amarok", "California"},
+            {"Transit", "Custom", "Connect", "Courier", "Ranger"},
+            {"Expert", "Partner", "Boxer", "Rifter", "Traveller"},
+            {"Master", "Kangoo", "Trafic", "Twizy", "Zoe"}
     };
 
 }
