@@ -1,4 +1,6 @@
-public class Camion extends Vehiculo{
+package Vehiculos;
+
+public class Camion extends Vehiculo {
 
     int masaMaximaAutorizada;
 

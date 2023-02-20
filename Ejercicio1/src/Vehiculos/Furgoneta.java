@@ -1,4 +1,8 @@
-public class Furgoneta extends Coche{
+package Vehiculos;
+
+import Vehiculos.Coche;
+
+public class Furgoneta extends Coche {
 
     boolean puertaLateralCorredera;
 

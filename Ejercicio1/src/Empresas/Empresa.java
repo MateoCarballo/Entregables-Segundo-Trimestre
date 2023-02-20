@@ -1,3 +1,5 @@
+package Empresas;
+
 public class Empresa {
     private String nombreEmpresa;
     private String cif;

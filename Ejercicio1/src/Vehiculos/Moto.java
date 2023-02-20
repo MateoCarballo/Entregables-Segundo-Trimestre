@@ -1,4 +1,6 @@
-public class Moto extends Vehiculo{
+package Vehiculos;
+
+public class Moto extends Vehiculo {
 
     private int cilindrada;
     //TODO naked,custom,trail,RR,Turismo.

@@ -1,3 +1,5 @@
+package Empresas;
+
 import java.util.ArrayList;
 
 public class Concesionario extends Empresa{
