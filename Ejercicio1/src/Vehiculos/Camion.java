@@ -17,4 +17,8 @@ public class Camion extends Vehiculo {
     public void setCombustible(String combustible){
         super.setCombustible("Diesel");
     }
+
+    public void setMasaMaximaAutorizada(int masaMaximaAutorizada) {
+        this.masaMaximaAutorizada = masaMaximaAutorizada;
+    }
 }

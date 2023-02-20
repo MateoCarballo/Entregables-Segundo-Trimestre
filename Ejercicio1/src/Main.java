@@ -1,9 +1,6 @@
 import Empresas.Concesionario;
 import Empresas.Empresa;
-import Vehiculos.Coche;
-import Vehiculos.Furgoneta;
-import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
+import Vehiculos.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -142,9 +139,29 @@ public class Main {
                                 furgoAñadida.setPuertaLateralCorredera(false);
                             }
                             Concesionario.añadirFurgoneta(furgoAñadida);
+                            }
+                        case 4 ->{System.out.println("Marca?");
+                            String marca = br.readLine();
+                            System.out.println("Modelo?");
+                            String modelo = br.readLine();
+                            System.out.println("Fecha de matriculacion?");
+                            String fechaMatriculacion = br.readLine();
+                            System.out.println("P.V.P.?");
+                            int pvp = Integer.parseInt(br.readLine());
+                            System.out.println("Peso?");
+                            int peso = Integer.parseInt(br.readLine());
+                            System.out.println("Combustible?");
+                            String combustible = br.readLine();
+                            //Propiedades propias del camion
+                            Camion miCamion= new Camion(marca, modelo,combustible, fechaMatriculacion,
+                                    "fechaEntradaConcesionario", pvp, peso);
+                            System.out.println("Masa Maxima Autorizada(M.M.A.)?");
+                            int mma = Integer.parseInt(br.readLine());
+                            miCamion.setMasaMaximaAutorizada(mma);
+                            
+                            Concesionario.añadirCamion(miCamion);
+                        }
 
-                            Concesionario.añadirFurgoneta();}
-                        case 4 ->Concesionario.añadirCamion();
                     }
                 }
                 case 3 ->{
