@@ -90,12 +90,12 @@ public class Main {
                             Concesionario.añadirCamion();
                         }
                     }
-                    }
+                }
                 case 3 ->{
                     System.out.println("Introduce la matricula del vehiculo a vender(1234ABC)");
                     entradaTeclado=br.readLine();
                     Concesionario.venderVehiculo();
-                    }
+                }
 
                 case 4 ->{
                     System.out.println("Introduce la matricula del vehiculo a consultar(1234ABC)");
