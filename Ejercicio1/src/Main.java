@@ -139,7 +139,7 @@ public class Main {
                                 furgoAñadida.setPuertaLateralCorredera(false);
                             }
                             Concesionario.añadirFurgoneta(furgoAñadida);
-                            }
+                        }
                         case 4 ->{System.out.println("Marca?");
                             String marca = br.readLine();
                             System.out.println("Modelo?");
@@ -158,7 +158,7 @@ public class Main {
                             System.out.println("Masa Maxima Autorizada(M.M.A.)?");
                             int mma = Integer.parseInt(br.readLine());
                             miCamion.setMasaMaximaAutorizada(mma);
-                            
+
                             Concesionario.añadirCamion(miCamion);
                         }
 
