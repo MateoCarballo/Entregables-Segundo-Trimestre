@@ -19,5 +19,15 @@ public class Enumeracion {
             {"Continental GT", "Flying Spur", "Bentayga", "Mulsanne"}
     };
 
+    final String[] marcasMoto = {"Honda", "Yamaha", "Kawasaki", "Suzuki", "Ducati"};
+
+    
+    final String[][] modelosMoto = {
+            {"CBR1000RR", "CBR650R", "Gold Wing", "Africa Twin", "Super Cub"},
+            {"YZF-R1", "YZF-R6", "MT-07", "MT-09", "Niken"},
+            {"Ninja H2", "Ninja ZX-10R", "Z900", "Z650", "Vulcan S"},
+            {"GSX-R1000", "GSX-S1000", "V-Strom 1050", "SV650", "Burgman 400"},
+            {"Panigale V4", "Diavel", "Monster", "Multistrada", "Scrambler"}
+    };
 
 }
