@@ -7,7 +7,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         boolean continuar = true;
-        int entradaTeclado =0;
+        int entradaTeclado;
+
         Empresa miConcesionario = new Concesionario("Rías Baixas","123456789",
                 "ES-34-5678-00-123456789","httpss//www.mipaginaweb.com",
                 "Compra venta de vehiculos",
@@ -40,7 +41,7 @@ public class Main {
                             4.Ver todas las furgos.
                             5.Ver todos los camiones.
                             """);
-                    
+
                     //TODO comprobar que introducimos valores validos
 
                     entradaTeclado=Integer.parseInt(br.readLine());
@@ -64,7 +65,31 @@ public class Main {
 
                 }
                 case 2 ->{
+                    System.out.println("""
+                                    AÑADIR
+                            1.  MOTO
+                            2.  COCHE
+                            3.  FURGONETA
+                            4.  CAMION
+                            
+                            """);
+                    //TODO comprobar que introducimos valores validos
 
+                    entradaTeclado=Integer.parseInt(br.readLine());
+                    switch(entradaTeclado){
+                        case 1->{
+                            Concesionario.añadirMoto();
+                        }
+                        case 2 ->{
+                            Concesionario.añadirCoche();
+                        }
+                        case 3 ->{
+                            Concesionario.añadirFurgoneta();
+                        }
+                        case 4 ->{
+                            Concesionario.añadirCamion();
+                        }
+                    }
                     }
                 case 3 ->{
 
