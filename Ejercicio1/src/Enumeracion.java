@@ -33,13 +33,25 @@ public class Enumeracion {
 
     String[] marcasFurgoneta = {"Mercedes-Benz", "Volkswagen", "Ford", "Peugeot", "Renault"};
 
-    
+
     String[][] modelosFurgoneta = {
             {"Sprinter", "Vito", "Citan", "Marco Polo", "X-Class"},
             {"Transporter", "Crafter", "Caddy", "Amarok", "California"},
             {"Transit", "Custom", "Connect", "Courier", "Ranger"},
             {"Expert", "Partner", "Boxer", "Rifter", "Traveller"},
             {"Master", "Kangoo", "Trafic", "Twizy", "Zoe"}
+    };
+
+
+    String[] marcasCamion = {"Volvo", "Scania", "Mercedes-Benz", "DAF", "MAN"};
+
+    
+    String[][] modelosCamion = {
+            {"FH16", "FM", "FE", "FL", "VHD"},
+            {"R-Series", "S-Series", "P-Series", "G-Series", "L-Series"},
+            {"Actros", "Atego", "Antos", "Econic", "Unimog"},
+            {"XF", "CF", "LF", "FT", "XF ECO"},
+            {"TGX", "TGS", "TGM", "TGL", "Lion's City"}
     };
 
 }
