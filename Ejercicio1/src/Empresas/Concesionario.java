@@ -18,6 +18,14 @@ public class Concesionario extends Empresa{
         super(nombreEmpresa, cif, cuentaSS, url, razonSocial, direccionPostal, numeroTelefono1, emailcorporativo1, ip1);
     }
 
+    public void setFacturacion(int facturacion) {
+        this.facturacion = facturacion;
+    }
+
+    public int getFacturacion() {
+        return facturacion;
+    }
+
     public static void añadirMoto(Vehiculo miMoto){
         vehiculosConcesionario.add(miMoto);
     }
@@ -45,7 +53,7 @@ public class Concesionario extends Empresa{
     public static void verCamiones(){
 
     }
-    public static void venderVehiculo (String matricula,String pvp){
+    public static void venderVehiculo (String matricula){
         Vehiculo miVehiculo = new Vehiculo();
         //TODO esto se puede hacer mejor ?
         for (int i = 0; i < vehiculosConcesionario.size()  ; i++) {
@@ -55,6 +63,7 @@ public class Concesionario extends Empresa{
             }
         }
     }
+
 
     public static void verEstadisticasVehiculo(){
         

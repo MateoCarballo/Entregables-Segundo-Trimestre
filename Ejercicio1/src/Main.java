@@ -13,7 +13,7 @@ public class Main {
         boolean continuar = true;
         String  entradaTeclado ="";
 
-        Empresa miConcesionario = new Concesionario("Rías Baixas","123456789",
+        Concesionario miConcesionario = new Concesionario("Rías Baixas","123456789",
                 "ES-34-5678-00-123456789","httpss//www.mipaginaweb.com",
                 "Compra venta de vehiculos",
                 "Calle inventada 99","999-123-456",
@@ -176,8 +176,11 @@ public class Main {
                     System.out.println("Introduce la matricula del vehiculo a vender(1234ABC)");
                     String matricula =br.readLine();
                     System.out.println("Precio de venta ");
-                    String pvp= br.readLine();
-                    Concesionario.venderVehiculo(matricula,pvp);
+                    String pvp = br.readLine();
+                    int facturacionPreviaVenta= miConcesionario.getFacturacion();
+                    miConcesionario.setFacturacion(facturacionPreviaVenta+Integer.parseInt(pvp));
+                    Concesionario.venderVehiculo(matricula);
+
                 }
 
                 case 4 ->{
