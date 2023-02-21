@@ -26,6 +26,38 @@ public class Concesionario extends Empresa{
         return facturacion;
     }
 
+    public int getTotalMotos() {
+        return totalMotos;
+    }
+
+    public void setTotalMotos(int totalMotos) {
+        this.totalMotos = totalMotos;
+    }
+
+    public int getTotalCoches() {
+        return totalCoches;
+    }
+
+    public void setTotalCoches(int totalCoches) {
+        this.totalCoches = totalCoches;
+    }
+
+    public int getTotalFurgonetas() {
+        return totalFurgonetas;
+    }
+
+    public void setTotalFurgonetas(int totalFurgonetas) {
+        this.totalFurgonetas = totalFurgonetas;
+    }
+
+    public int getTotalCamiones() {
+        return totalCamiones;
+    }
+
+    public void setTotalCamiones(int totalCamiones) {
+        this.totalCamiones = totalCamiones;
+    }
+
     public static void añadirMoto(Vehiculo miMoto){
         vehiculosConcesionario.add(miMoto);
     }

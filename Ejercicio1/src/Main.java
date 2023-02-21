@@ -19,6 +19,10 @@ public class Main {
                 "Calle inventada 99","999-123-456",
                 "miEmail@miEmpresa.com",
                 "192.168.0.1");
+        miConcesionario.setTotalMotos(0);
+        miConcesionario.setTotalCoches(0);
+        miConcesionario.setTotalFurgonetas(0);
+        miConcesionario.setTotalCamiones(0);
 
         do {
             System.out.println("""
@@ -91,6 +95,8 @@ public class Main {
                                     "fechaEntradaConcesionario", pvp, peso,matricula);
 
                             Concesionario.añadirMoto(motoAñadida);
+                            int totalAnterior= miConcesionario.getTotalMotos();
+                            miConcesionario.setTotalMotos(totalAnterior+1);
                         }
                         case 2 -> {
                             System.out.println("Marca?");
@@ -115,8 +121,9 @@ public class Main {
                             String numerodePuertas= br.readLine();
 
                             cocheAñadido.setNumerodePuertas(Byte.parseByte(numerodePuertas));
-
                             Concesionario.añadirCoche(cocheAñadido);
+                            int totalAnterior= miConcesionario.getTotalCoches();
+                            miConcesionario.setTotalCoches(totalAnterior+1);
                         }
 
                         case 3 ->{System.out.println("Marca?");
@@ -145,6 +152,8 @@ public class Main {
                                 furgoAñadida.setPuertaLateralCorredera(false);
                             }
                             Concesionario.añadirFurgoneta(furgoAñadida);
+                            int totalAnterior= miConcesionario.getTotalFurgonetas();
+                            miConcesionario.setTotalFurgonetas(totalAnterior+1);
                         }
                         case 4 ->{System.out.println("Marca?");
                             String marca = br.readLine();
@@ -168,6 +177,8 @@ public class Main {
                             miCamion.setMasaMaximaAutorizada(mma);
 
                             Concesionario.añadirCamion(miCamion);
+                            int totalAnterior= miConcesionario.getTotalCamiones();
+                            miConcesionario.setTotalCamiones(totalAnterior+1);
                         }
 
                     }
