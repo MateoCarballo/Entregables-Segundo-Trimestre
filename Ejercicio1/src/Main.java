@@ -85,8 +85,10 @@ public class Main {
                             System.out.println("Tipo de moto?(Naked,custom,...)");
                             String tipodeMoto = br.readLine();
                             System.out.println("Cilindrada?");
+                            System.out.println("Matricula?");
+                            String matricula= br.readLine();
                             Vehiculo motoAñadida = new Moto(marca, modelo, fechaMatriculacion,
-                                    "fechaEntradaConcesionario", pvp, peso);
+                                    "fechaEntradaConcesionario", pvp, peso,matricula);
 
                             Concesionario.añadirMoto(motoAñadida);
                         }
@@ -103,9 +105,11 @@ public class Main {
                             int peso = Integer.parseInt(br.readLine());
                             System.out.println("Combustible?");
                             String combustible = br.readLine();
+                            System.out.println("Matricula?");
+                            String matricula= br.readLine();
                             //Propiedades propias del coche
                             Coche cocheAñadido= new Coche(marca, modelo,combustible, fechaMatriculacion,
-                                    "fechaEntradaConcesionario", pvp, peso);
+                                    "fechaEntradaConcesionario", pvp, peso,matricula);
                             //setear el número de puertas
                             System.out.println("Numero de puertas?");
                             String numerodePuertas= br.readLine();
@@ -127,9 +131,11 @@ public class Main {
                             int peso = Integer.parseInt(br.readLine());
                             System.out.println("Combustible?");
                             String combustible = br.readLine();
+                            System.out.println("Matricula?");
+                            String matricula= br.readLine();
                             //Propiedades propias de la furgo
                             Furgoneta furgoAñadida= new Furgoneta(marca, modelo,combustible, fechaMatriculacion,
-                                    "fechaEntradaConcesionario", pvp, peso);
+                                    "fechaEntradaConcesionario", pvp, peso,matricula);
                             //setear el número de puertas
                             System.out.println("Puertas correderas?(S/N)");
 
@@ -152,9 +158,11 @@ public class Main {
                             int peso = Integer.parseInt(br.readLine());
                             System.out.println("Combustible?");
                             String combustible = br.readLine();
+                            System.out.println("Matricula?");
+                            String matricula= br.readLine();
                             //Propiedades propias del camion
                             Camion miCamion= new Camion(marca, modelo,combustible, fechaMatriculacion,
-                                    "fechaEntradaConcesionario", pvp, peso);
+                                    "fechaEntradaConcesionario", pvp, peso,matricula);
                             System.out.println("Masa Maxima Autorizada(M.M.A.)?");
                             int mma = Integer.parseInt(br.readLine());
                             miCamion.setMasaMaximaAutorizada(mma);

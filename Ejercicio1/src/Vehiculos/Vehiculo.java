@@ -11,7 +11,9 @@ public class Vehiculo {
     private String tipodeCarnet;
     private int peso;
 
-    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso) {
+    private String matricula;
+
+    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso, String matricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.combustible = combustible;
@@ -19,6 +21,7 @@ public class Vehiculo {
         this.fechaEntradaConcesionario = fechaEntradaConcesionario;
         this.precio = precio;
         this.peso = peso;
+        this.matricula = matricula;
     }
 
     public void setTipodeCarnet(String tipodeCarnet) {
