@@ -13,6 +13,10 @@ public class Vehiculo {
 
     private String matricula;
 
+    public Vehiculo(){
+
+    }
+
     public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso, String matricula) {
         this.marca = marca;
         this.modelo = modelo;
@@ -29,4 +33,8 @@ public class Vehiculo {
     }
 
     public void setCombustible(String combustible) {this.combustible = combustible;}
+
+    public String getMatricula() {
+        return matricula;
+    }
 }

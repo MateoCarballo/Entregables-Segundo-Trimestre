@@ -174,8 +174,10 @@ public class Main {
                 }
                 case 3 ->{
                     System.out.println("Introduce la matricula del vehiculo a vender(1234ABC)");
-                    entradaTeclado=br.readLine();
-                    Concesionario.venderVehiculo();
+                    String matricula =br.readLine();
+                    System.out.println("Precio de venta ");
+                    String pvp= br.readLine();
+                    Concesionario.venderVehiculo(matricula,pvp);
                 }
 
                 case 4 ->{

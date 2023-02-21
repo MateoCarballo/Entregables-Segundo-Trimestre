@@ -2,6 +2,7 @@ package Empresas;
 
 import Vehiculos.Vehiculo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Concesionario extends Empresa{
@@ -44,8 +45,15 @@ public class Concesionario extends Empresa{
     public static void verCamiones(){
 
     }
-    public static void venderVehiculo(){
-
+    public static void venderVehiculo (String matricula,String pvp){
+        Vehiculo miVehiculo = new Vehiculo();
+        //TODO esto se puede hacer mejor ?
+        for (int i = 0; i < vehiculosConcesionario.size()  ; i++) {
+            miVehiculo=vehiculosConcesionario.get(i);
+            if (miVehiculo.getMatricula().equalsIgnoreCase(matricula)){
+                vehiculosConcesionario.remove(i);
+            }
+        }
     }
 
     public static void verEstadisticasVehiculo(){
