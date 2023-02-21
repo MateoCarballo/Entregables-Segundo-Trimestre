@@ -19,6 +19,7 @@ public class Main {
                 "Calle inventada 99","999-123-456",
                 "miEmail@miEmpresa.com",
                 "192.168.0.1");
+        miConcesionario.setTotaldeVehiculos(0);
         miConcesionario.setTotalMotos(0);
         miConcesionario.setTotalCoches(0);
         miConcesionario.setTotalFurgonetas(0);
@@ -182,6 +183,8 @@ public class Main {
                         }
 
                     }
+                    int totalAnterior= miConcesionario.getTotaldeVehiculos();
+                    miConcesionario.setTotaldeVehiculos(totalAnterior+1);
                 }
                 case 3 ->{
                     System.out.println("Introduce la matricula del vehiculo a vender(1234ABC)");
@@ -202,6 +205,7 @@ public class Main {
                 }
 
             }
+
         }while(continuar);
 
     }

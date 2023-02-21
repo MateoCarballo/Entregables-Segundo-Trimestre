@@ -18,6 +18,14 @@ public class Concesionario extends Empresa{
         super(nombreEmpresa, cif, cuentaSS, url, razonSocial, direccionPostal, numeroTelefono1, emailcorporativo1, ip1);
     }
 
+    public int getTotaldeVehiculos() {
+        return totaldeVehiculos;
+    }
+
+    public void setTotaldeVehiculos(int totaldeVehiculos) {
+        this.totaldeVehiculos = totaldeVehiculos;
+    }
+
     public void setFacturacion(int facturacion) {
         this.facturacion = facturacion;
     }
