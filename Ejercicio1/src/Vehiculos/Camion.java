@@ -6,6 +6,11 @@ public class Camion extends Vehiculo {
 
     public Camion(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso, String matricula) {
         super(marca, modelo, combustible, fechaMatriculacion, fechaEntradaConcesionario, precio, peso, matricula);
+        setearCampos();
+    }
+
+    private void setearCampos() {
+        setTipodeCarnet("C");
     }
 
     @Override

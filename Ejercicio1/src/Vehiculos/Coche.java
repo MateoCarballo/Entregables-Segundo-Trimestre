@@ -7,6 +7,11 @@ public class Coche extends Vehiculo {
                  String fechaEntradaConcesionario, int precio, int peso,String matricula) {
         super(marca, modelo, combustible, fechaMatriculacion,
                 fechaEntradaConcesionario, precio, peso, matricula);
+        setearCampos();
+    }
+
+    private void setearCampos() {
+        setTipodeCarnet("B");
     }
 
     @Override
