@@ -305,5 +305,7 @@ public class Main {
         return aleatorio;
     }
     //TODO printear furgonetas
+    //todo pendiente de evitar errores al introducir valores(bucles para evitar una mala matricula etc)
+    //todo pendiente de autocompletar tipo de carnet en funcion de que clase creamos (moto,coche,camion,etc)
 }
 
