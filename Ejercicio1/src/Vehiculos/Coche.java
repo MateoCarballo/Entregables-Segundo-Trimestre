@@ -15,13 +15,12 @@ public class Coche extends Vehiculo {
     }
 
     public void setNumerodePuertas(byte numerodePuertas) {
-
         this.numerodePuertas = numerodePuertas;
     }
 
     @Override
     public String toString() {
-        super.toString();
+        System.out.println(super.toString());
         return "numerodePuertas=" + numerodePuertas +
                 '}';
     }

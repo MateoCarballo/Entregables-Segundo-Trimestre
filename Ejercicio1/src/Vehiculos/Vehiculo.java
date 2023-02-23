@@ -14,8 +14,11 @@ public class Vehiculo {
     private String matricula;
 
     boolean esFurgoneta;
-
     public Vehiculo(){
+
+    }
+
+    public Vehiculo(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, String entradaConcesionario, int precio, int peso, String matricula){
 
     }
 

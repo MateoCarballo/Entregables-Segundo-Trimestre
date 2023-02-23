@@ -22,4 +22,19 @@ public class Empresa {
         this.emailcorporativo1 = emailcorporativo1;
         this.ip1 = ip1;
     }
+
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "nombreEmpresa='" + nombreEmpresa + '\'' +
+                ", cif='" + cif + '\'' +
+                ", cuentaSS='" + cuentaSS + '\'' +
+                ", url='" + url + '\'' +
+                ", razonSocial='" + razonSocial + '\'' +
+                ", direccionPostal='" + direccionPostal + '\'' +
+                ", numeroTelefono1='" + numeroTelefono1 + '\'' +
+                ", emailcorporativo1='" + emailcorporativo1 + '\'' +
+                ", ip1='" + ip1 + '\'' +
+                '}';
+    }
 }

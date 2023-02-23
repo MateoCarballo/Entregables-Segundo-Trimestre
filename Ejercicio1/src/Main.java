@@ -1,10 +1,10 @@
 import Empresas.Concesionario;
-import Empresas.Empresa;
 import Vehiculos.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -25,10 +25,11 @@ public class Main {
         miConcesionario.setTotalFurgonetas(0);
         miConcesionario.setTotalCamiones(0);
 
+        rellenarCampos(miConcesionario);
         do {
             System.out.println("""
                          GESTION CONSCESIONARIO
-                         
+                    0.Datos Empresa y Facturacion.     
                     1.VER VEHICULOS.
                     2.AÑADIR VEHICULO.
                     3.VENDER VEHICULO.
@@ -41,6 +42,9 @@ public class Main {
             entradaTeclado=br.readLine();
 
             switch (Integer.parseInt(entradaTeclado)){
+                case 0->{
+                    System.out.println(miConcesionario);
+                }
                 case 1 ->{
                     System.out.println("""
                                 Elige una opcion:
@@ -51,7 +55,7 @@ public class Main {
                             5.Ver todos los camiones.
                             """);
 
-                    //TODO comprobar que introducimos valores validos
+                    //TODO comprobar que introducimos va1lores validos
 
                     entradaTeclado=br.readLine();
                     switch(Integer.parseInt(entradaTeclado)){
@@ -90,11 +94,16 @@ public class Main {
                             System.out.println("Tipo de moto?(Naked,custom,...)");
                             String tipodeMoto = br.readLine();
                             System.out.println("Cilindrada?");
+                            int cilindrada= Integer.parseInt(br.readLine());
                             System.out.println("Matricula?");
                             String matricula= br.readLine();
-                            Vehiculo motoAñadida = new Moto(marca, modelo, fechaMatriculacion,
-                                    "fechaEntradaConcesionario", pvp, peso,matricula);
+                            Moto motoAñadida;
 
+                            motoAñadida= new Moto(marca, modelo,"Gasolina", fechaMatriculacion,
+                                    "fechaEntradaConcesionario", pvp, peso,matricula);
+                            motoAñadida.setCilindrada(cilindrada);
+                            motoAñadida.setTipo(tipodeMoto);
+                            motoAñadida.setTipodeCarnet("A");
                             Concesionario.añadirMoto(motoAñadida);
                             int totalAnterior= miConcesionario.getTotalMotos();
                             miConcesionario.setTotalMotos(totalAnterior+1);
@@ -122,6 +131,7 @@ public class Main {
                             String numerodePuertas= br.readLine();
 
                             cocheAñadido.setNumerodePuertas(Byte.parseByte(numerodePuertas));
+                            cocheAñadido.setTipodeCarnet("B");
                             Concesionario.añadirCoche(cocheAñadido);
                             int totalAnterior= miConcesionario.getTotalCoches();
                             miConcesionario.setTotalCoches(totalAnterior+1);
@@ -144,6 +154,7 @@ public class Main {
                             //Propiedades propias de la furgo
                             Furgoneta furgoAñadida= new Furgoneta(marca, modelo,combustible, fechaMatriculacion,
                                     "fechaEntradaConcesionario", pvp, peso,matricula);
+                            furgoAñadida.setTipodeCarnet("B");
                             Concesionario.añadirFurgoneta(furgoAñadida);
                             int totalAnterior= miConcesionario.getTotalFurgonetas();
                             miConcesionario.setTotalFurgonetas(totalAnterior+1);
@@ -167,6 +178,7 @@ public class Main {
                                     "fechaEntradaConcesionario", pvp, peso,matricula);
                             System.out.println("Masa Maxima Autorizada(M.M.A.)?");
                             int mma = Integer.parseInt(br.readLine());
+                            miCamion.setTipodeCarnet("C");
                             miCamion.setMasaMaximaAutorizada(mma);
 
                             Concesionario.añadirCamion(miCamion);
@@ -185,7 +197,7 @@ public class Main {
                     String pvp = br.readLine();
                     int facturacionPreviaVenta= miConcesionario.getFacturacion();
                     miConcesionario.setFacturacion(facturacionPreviaVenta+Integer.parseInt(pvp));
-                    Concesionario.venderVehiculo(matricula);
+                    Concesionario.venderVehiculo(matricula,pvp);
 
                 }
 
@@ -195,10 +207,103 @@ public class Main {
                     Concesionario.verEstadisticasVehiculo(entradaTeclado);
 
                 }
+                case 5 -> continuar=false;
 
             }
 
         }while(continuar);
 
     }
+
+    public static void rellenarCampos(Concesionario miConcesionario){
+        rellenarMotos(miConcesionario.vehiculosConcesionario);
+        rellenarCoches(miConcesionario.vehiculosConcesionario);
+        rellenarFurgonetas(miConcesionario.vehiculosConcesionario);
+        rellenarCamiones(miConcesionario.vehiculosConcesionario);
+    }
+    private static void rellenarMotos(ArrayList<Vehiculo> vehiculosConcesionario) {
+        int aleatorio=0;
+        aleatorio=numAleatorioEntero(0,4);
+
+
+        for (int i = 0; i < 5; i++) {
+            Moto miMoto=new Moto(Enumeracion.marcasMoto[aleatorio],
+                    Enumeracion.modelosMoto[aleatorio][numAleatorioEntero(0,4)],
+                    "Gasolina",
+                    "fechaMatriculacion","fechaEntradaConcesionario",
+                    numAleatorioEntero(5000,10000),numAleatorioEntero(180,250),
+                    "Matricula");
+            /*
+            ¿TODO esto se puede hacer?? Tengo dudas que me lo copie y no este modificando el objeto moto que quiero.
+            No me queda claro si copio lo que tengo en la ArrayList y trabjo desde fuera o si trabajo directamente lo que tengo en la ArrayList
+
+             */
+            miMoto.setTipo(Enumeracion.formatodeMoto[numAleatorioEntero(0,4)]);
+            miMoto.setCilindrada(numAleatorioEntero(125,1400));
+            miMoto.setTipodeCarnet("A");
+            vehiculosConcesionario.add(miMoto);
+        }
+    }
+    private static void rellenarCoches(ArrayList<Vehiculo> vehiculosConcesionario) {
+        int aleatorio=0;
+        aleatorio=numAleatorioEntero(0,3);
+
+        for (int i = 5; i < 10; i++) {
+            Coche miCoche=new Coche(Enumeracion.marcasCoche[aleatorio],
+                    Enumeracion.modelosCoche[aleatorio][numAleatorioEntero(0,3)],
+                    Enumeracion.combustible[numAleatorioEntero(0,4)],
+                    "fechaMatriculacion","fechaEntradaConcesionario",numAleatorioEntero(15000,60000),
+                    numAleatorioEntero(1800,2500),
+                    "Matricula");
+            miCoche.setNumerodePuertas((byte)numAleatorioEntero(3,5));
+            miCoche.setTipodeCarnet("B");
+            vehiculosConcesionario.add(miCoche);
+        }
+    }
+    private static void rellenarFurgonetas(ArrayList<Vehiculo> vehiculosConcesionario) {
+
+            int aleatorio=0;
+            aleatorio=numAleatorioEntero(0,4);
+
+
+
+            for (int i = 15; i < 20; i++) {
+                Furgoneta miFurgoneta= new Furgoneta(Enumeracion.marcasFurgoneta[aleatorio],
+                        Enumeracion.modelosFurgoneta[aleatorio][numAleatorioEntero(0,4)],
+                        Enumeracion.combustible[numAleatorioEntero(0,4)],
+                        "fechaMatriculacion","fechaEntradaConcesionario",
+                        numAleatorioEntero(15000,60000),numAleatorioEntero(1800,2500),
+                        "Matricula");
+                miFurgoneta.setTipodeCarnet("B");
+                vehiculosConcesionario.add(miFurgoneta);
+
+            }
+
+    }
+    private static void rellenarCamiones(ArrayList<Vehiculo> vehiculosConcesionario) {
+
+            int aleatorio=0;
+            aleatorio=numAleatorioEntero(0,4);
+
+
+            for (int i = 5; i < 10; i++) {
+                Camion miCamion = new Camion(Enumeracion.marcasCamion[aleatorio],
+                        Enumeracion.modelosCamion[aleatorio][numAleatorioEntero(0,4)],
+                        "Diesel",
+                        "fechaMatriculacion","fechaEntradaConcesionario",
+                        numAleatorioEntero(15000,60000),
+                        numAleatorioEntero(1800,2500),
+                        "Matricula");
+                miCamion.setTipodeCarnet("C");
+                vehiculosConcesionario.add(miCamion);
+            }
+
+
+    }
+    public static int numAleatorioEntero(int limInferior, int limSuperior){
+        int aleatorio = (int)(Math.random()*(limSuperior-limInferior+1)+limInferior);
+        return aleatorio;
+    }
+    //TODO printear furgonetas
 }
+

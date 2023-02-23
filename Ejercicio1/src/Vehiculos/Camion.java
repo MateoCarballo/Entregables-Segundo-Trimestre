@@ -24,7 +24,7 @@ public class Camion extends Vehiculo {
 
     @Override
     public String toString() {
-        super.toString();
+        System.out.println(super.toString());
         return "masaMaximaAutorizada=" + masaMaximaAutorizada +
                 '}';
     }

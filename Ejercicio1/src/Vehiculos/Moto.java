@@ -5,22 +5,31 @@ public class Moto extends Vehiculo {
     private int cilindrada;
     //TODO naked,custom,trail,RR,Turismo.
     private String tipo;
-    public Moto(){
 
+    public Moto(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, String entradaConcesionario, int precio, int peso, String matricula) {
+        super(marca, modelo, combustible, fechaMatriculacion, fechaEntradaConcesionario, entradaConcesionario, precio, peso, matricula);
     }
 
-    public Moto(String marca, String modelo, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso,String matricula) {
-        super(marca, modelo, fechaMatriculacion, fechaEntradaConcesionario, fechaEntradaConcesionario, precio, peso, matricula);
+    public Moto(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, int precio, int peso, String matricula) {
+        super(marca, modelo, combustible, fechaMatriculacion, fechaEntradaConcesionario, precio, peso, matricula);
     }
 
     @Override
     public void setTipodeCarnet(String tipodeCarnet) {
-        super.setTipodeCarnet("A");
+        super.setTipodeCarnet(tipodeCarnet);
     }
 
     @Override
     public void setCombustible(String combustible){
         super.setCombustible("Gasolina");
+    }
+
+    public void setCilindrada(int cilindrada) {
+        this.cilindrada = cilindrada;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     /*
@@ -34,7 +43,7 @@ public class Moto extends Vehiculo {
 
     @Override
     public String toString() {
-        super.toString();
+        System.out.println(super.toString());
         return  "cilindrada=" + cilindrada +
                 ", tipo='" + tipo + '\'' +
                 '}';

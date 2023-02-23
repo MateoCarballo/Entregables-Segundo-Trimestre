@@ -1,9 +1,7 @@
 package Empresas;
 
-import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Concesionario extends Empresa{
@@ -14,7 +12,7 @@ public class Concesionario extends Empresa{
     int totalCamiones;
     int facturacion;
 
-    public static final ArrayList <Vehiculo> vehiculosConcesionario =new ArrayList<Vehiculo>();
+    public static ArrayList <Vehiculo> vehiculosConcesionario =new ArrayList<Vehiculo>();
     public Concesionario(String nombreEmpresa, String cif, String cuentaSS, String url, String razonSocial, String direccionPostal, String numeroTelefono1, String emailcorporativo1, String ip1) {
         super(nombreEmpresa, cif, cuentaSS, url, razonSocial, direccionPostal, numeroTelefono1, emailcorporativo1, ip1);
     }
@@ -81,21 +79,16 @@ public class Concesionario extends Empresa{
     }
 
     public static void verVehiculos(){
-        Vehiculo miVehiculo;
-
         for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
-            miVehiculo=vehiculosConcesionario.get(i);
-            miVehiculo.toString();
+
+           System.out.println(vehiculosConcesionario.get(i));
         }
     }
 
     public static void verMotos(){
-        Vehiculo mimoto;
-
         for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
-            mimoto=vehiculosConcesionario.get(i);
-            if(mimoto.getTipodeCarnet().equalsIgnoreCase("A")){
-                mimoto.toString();
+            if(vehiculosConcesionario.get(i).getTipodeCarnet().equalsIgnoreCase("A")){
+                System.out.println(vehiculosConcesionario.get(i).toString());
             }
         }
     }
@@ -105,18 +98,15 @@ public class Concesionario extends Empresa{
         for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
             miCoche=vehiculosConcesionario.get(i);
             if(miCoche.getTipodeCarnet().equalsIgnoreCase("B")){
-                miCoche.toString();
+                System.out.println(miCoche);
             }
         }
     }
 
     public static void verFurgonetas(){
-        Vehiculo miFurgo;
-
         for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
-            miFurgo=vehiculosConcesionario.get(i);
-            if(miFurgo.isEsFurgoneta()){
-                miFurgo.toString();
+            if(vehiculosConcesionario.get(i).isEsFurgoneta()){
+                System.out.println(vehiculosConcesionario.get(i));
             }
         }
     }
@@ -127,19 +117,20 @@ public class Concesionario extends Empresa{
         for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
             miCamion=vehiculosConcesionario.get(i);
             if(miCamion.getTipodeCarnet().equalsIgnoreCase("C")){
-                miCamion.toString();
+                System.out.println(miCamion);
             }
         }
     }
-    public static void venderVehiculo (String matricula){
-        Vehiculo miVehiculo = new Vehiculo();
+    public static void venderVehiculo (String matricula,String pvp){
+
         //TODO esto se puede hacer mejor ?
         for (int i = 0; i < vehiculosConcesionario.size()  ; i++) {
-            miVehiculo=vehiculosConcesionario.get(i);
-            if (miVehiculo.getMatricula().equalsIgnoreCase(matricula)){
+            if (vehiculosConcesionario.get(i).getMatricula().equalsIgnoreCase(matricula)){
                 vehiculosConcesionario.remove(i);
             }
+
         }
+        System.out.println("Vehiculo vendido por un precio de"+ pvp+ " €");
     }
 
 
@@ -148,10 +139,20 @@ public class Concesionario extends Empresa{
         for (int i = 0; i < vehiculosConcesionario.size(); i++) {
             miVehiculo=vehiculosConcesionario.get(i);
             if(miVehiculo.getMatricula().equalsIgnoreCase(matricula)){
-                miVehiculo.toString();
+                System.out.println( miVehiculo);;
             }
         }
+    }
 
-        
+    @Override
+    public String toString() {
+        return "Concesionario{" +
+                "totaldeVehiculos=" + totaldeVehiculos +
+                ", totalMotos=" + totalMotos +
+                ", totalCoches=" + totalCoches +
+                ", totalFurgonetas=" + totalFurgonetas +
+                ", totalCamiones=" + totalCamiones +
+                ", facturacion=" + facturacion +
+                '}';
     }
 }
