@@ -1,5 +1,6 @@
 package Empresas;
 
+import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 
 import java.lang.reflect.Array;
@@ -78,20 +79,57 @@ public class Concesionario extends Empresa{
     public static void añadirCamion(Vehiculo miCamion){
         vehiculosConcesionario.add(miCamion);
     }
+
     public static void verVehiculos(){
+        Vehiculo miVehiculo;
 
+        for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
+            miVehiculo=vehiculosConcesionario.get(i);
+            miVehiculo.toString();
+        }
     }
-    public static void verMotos(){
 
+    public static void verMotos(){
+        Vehiculo mimoto;
+
+        for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
+            mimoto=vehiculosConcesionario.get(i);
+            if(mimoto.getTipodeCarnet().equalsIgnoreCase("A")){
+                mimoto.toString();
+            }
+        }
     }
     public static void verCoches(){
+        Vehiculo miCoche;
 
+        for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
+            miCoche=vehiculosConcesionario.get(i);
+            if(miCoche.getTipodeCarnet().equalsIgnoreCase("B")){
+                miCoche.toString();
+            }
+        }
     }
+
     public static void verFurgonetas(){
+        Vehiculo miFurgo;
 
+        for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
+            miFurgo=vehiculosConcesionario.get(i);
+            if(miFurgo.isEsFurgoneta()){
+                miFurgo.toString();
+            }
+        }
     }
-    public static void verCamiones(){
 
+    public static void verCamiones(){
+        Vehiculo miCamion;
+
+        for (int i = 0; i <vehiculosConcesionario.size() ; i++) {
+            miCamion=vehiculosConcesionario.get(i);
+            if(miCamion.getTipodeCarnet().equalsIgnoreCase("C")){
+                miCamion.toString();
+            }
+        }
     }
     public static void venderVehiculo (String matricula){
         Vehiculo miVehiculo = new Vehiculo();
@@ -105,7 +143,15 @@ public class Concesionario extends Empresa{
     }
 
 
-    public static void verEstadisticasVehiculo(){
+    public static void verEstadisticasVehiculo(String matricula){
+        Vehiculo miVehiculo;
+        for (int i = 0; i < vehiculosConcesionario.size(); i++) {
+            miVehiculo=vehiculosConcesionario.get(i);
+            if(miVehiculo.getMatricula().equalsIgnoreCase(matricula)){
+                miVehiculo.toString();
+            }
+        }
+
         
     }
 }

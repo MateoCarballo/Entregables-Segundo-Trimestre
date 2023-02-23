@@ -19,4 +19,10 @@ public class Coche extends Vehiculo {
         this.numerodePuertas = numerodePuertas;
     }
 
+    @Override
+    public String toString() {
+        super.toString();
+        return "numerodePuertas=" + numerodePuertas +
+                '}';
+    }
 }

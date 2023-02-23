@@ -21,4 +21,11 @@ public class Camion extends Vehiculo {
     public void setMasaMaximaAutorizada(int masaMaximaAutorizada) {
         this.masaMaximaAutorizada = masaMaximaAutorizada;
     }
+
+    @Override
+    public String toString() {
+        super.toString();
+        return "masaMaximaAutorizada=" + masaMaximaAutorizada +
+                '}';
+    }
 }

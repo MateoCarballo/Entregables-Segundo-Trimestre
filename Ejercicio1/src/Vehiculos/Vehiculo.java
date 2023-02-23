@@ -13,6 +13,8 @@ public class Vehiculo {
 
     private String matricula;
 
+    boolean esFurgoneta;
+
     public Vehiculo(){
 
     }
@@ -36,5 +38,32 @@ public class Vehiculo {
 
     public String getMatricula() {
         return matricula;
+    }
+
+    public String getTipodeCarnet() {
+        return tipodeCarnet;
+    }
+
+    public boolean isEsFurgoneta() {
+        return esFurgoneta;
+    }
+
+    public void setEsFurgoneta(boolean esFurgoneta) {
+        this.esFurgoneta = esFurgoneta;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", combustible='" + combustible + '\'' +
+                ", fechaMatriculacion='" + fechaMatriculacion + '\'' +
+                ", fechaEntradaConcesionario='" + fechaEntradaConcesionario + '\'' +
+                ", precio=" + precio +
+                ", tipodeCarnet='" + tipodeCarnet + '\'' +
+                ", peso=" + peso +
+                ", matricula='" + matricula + '\'' +
+                '}';
     }
 }

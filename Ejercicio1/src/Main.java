@@ -144,14 +144,6 @@ public class Main {
                             //Propiedades propias de la furgo
                             Furgoneta furgoAñadida= new Furgoneta(marca, modelo,combustible, fechaMatriculacion,
                                     "fechaEntradaConcesionario", pvp, peso,matricula);
-                            //setear el número de puertas
-                            System.out.println("Puertas correderas?(S/N)");
-
-                            if (br.readLine().equalsIgnoreCase("S")){
-                                furgoAñadida.setPuertaLateralCorredera(true);
-                            }else{
-                                furgoAñadida.setPuertaLateralCorredera(false);
-                            }
                             Concesionario.añadirFurgoneta(furgoAñadida);
                             int totalAnterior= miConcesionario.getTotalFurgonetas();
                             miConcesionario.setTotalFurgonetas(totalAnterior+1);
@@ -200,7 +192,7 @@ public class Main {
                 case 4 ->{
                     System.out.println("Introduce la matricula del vehiculo a consultar(1234ABC)");
                     entradaTeclado=br.readLine();
-                    Concesionario.verEstadisticasVehiculo();
+                    Concesionario.verEstadisticasVehiculo(entradaTeclado);
 
                 }
 
