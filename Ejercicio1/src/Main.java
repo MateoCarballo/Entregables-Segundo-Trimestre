@@ -229,7 +229,7 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             Moto miMoto=new Moto(Enumeracion.marcasMoto[aleatorio],
                     Enumeracion.modelosMoto[aleatorio][numAleatorioEntero(0,4)],
-                    "Gasolina",
+                    "Gas",
                     "fechaMatriculacion","fechaEntradaConcesionario",
                     numAleatorioEntero(5000,10000),numAleatorioEntero(180,250),
                     "Matricula");
@@ -240,7 +240,6 @@ public class Main {
              */
             miMoto.setTipo(Enumeracion.formatodeMoto[numAleatorioEntero(0,4)]);
             miMoto.setCilindrada(numAleatorioEntero(125,1400));
-            miMoto.setTipodeCarnet("A");
             vehiculosConcesionario.add(miMoto);
         }
     }
