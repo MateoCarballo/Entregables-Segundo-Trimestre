@@ -1,9 +1,9 @@
-package Vehiculos;
+package EjercicioConcesionario.Vehiculos;
 
 public class Moto extends Vehiculo {
 
     private int cilindrada;
-    //TODO naked,custom,trail,RR,Turismo.
+
     private String tipo;
 
     public Moto(String marca, String modelo, String combustible, String fechaMatriculacion, String fechaEntradaConcesionario, String entradaConcesionario, int precio, int peso, String matricula) {

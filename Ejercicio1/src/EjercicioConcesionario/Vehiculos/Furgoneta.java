@@ -1,6 +1,4 @@
-package Vehiculos;
-
-import Vehiculos.Coche;
+package EjercicioConcesionario.Vehiculos;
 
 public class Furgoneta extends Coche {
 

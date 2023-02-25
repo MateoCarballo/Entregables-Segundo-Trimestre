@@ -1,4 +1,4 @@
-package Vehiculos;
+package EjercicioConcesionario.Vehiculos;
 
 public class Vehiculo {
     private String marca;

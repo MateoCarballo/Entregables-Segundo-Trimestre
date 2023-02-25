@@ -1,4 +1,4 @@
-package Empresas;
+package EjercicioConcesionario.Empresas;
 
 public class Empresa {
     private String nombreEmpresa;

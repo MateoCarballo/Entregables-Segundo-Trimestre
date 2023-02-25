@@ -1,4 +1,4 @@
-package Vehiculos;
+package EjercicioConcesionario.Vehiculos;
 
 public class Coche extends Vehiculo {
     byte numerodePuertas;

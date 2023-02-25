@@ -1,6 +1,6 @@
-package Empresas;
+package EjercicioConcesionario.Empresas;
 
-import Vehiculos.Vehiculo;
+import EjercicioConcesionario.Vehiculos.Vehiculo;
 
 import java.util.ArrayList;
 
@@ -123,7 +123,7 @@ public class Concesionario extends Empresa{
     }
     public static void venderVehiculo (String matricula,String pvp){
 
-        //TODO esto se puede hacer mejor ?
+
         for (int i = 0; i < vehiculosConcesionario.size()  ; i++) {
             if (vehiculosConcesionario.get(i).getMatricula().equalsIgnoreCase(matricula)){
                 vehiculosConcesionario.remove(i);
