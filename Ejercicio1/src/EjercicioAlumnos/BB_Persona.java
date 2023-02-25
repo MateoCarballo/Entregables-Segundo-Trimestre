@@ -18,4 +18,15 @@ public class BB_Persona {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "BB_Persona{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                '}';
+    }
 }

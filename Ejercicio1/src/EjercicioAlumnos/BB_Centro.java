@@ -31,4 +31,29 @@ public class BB_Centro {
     public static void verProfesores(ArrayList<CC_Profesor> profesoresCentro){
 
     }
+
+    public static void añadirNotaAlumno(){
+
+    }
+    public static void buscarAlumno(int id,BB_Materia [] misMaterias){
+
+        for (int i = 0; i < alumnosCentro.size(); i++) {
+            if(alumnosCentro.get(i).getId()==id){
+                for (int j = 0; j < alumnosCentro.get(i).cursando.size(); j++) {
+                    BB_Materia [] misMaterias= new BB_Materia[j];
+                    misMaterias[j]=alumnosCentro.get(i).cursando.get(j);
+                }
+            }
+        }
+    }
+    @Override
+    public String toString() {
+        return "BB_Centro{" +
+                "tipo='" + tipo + '\'' +
+                ", Naturaleza='" + Naturaleza + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", cp='" + cp + '\'' +
+                '}';
+    }
 }
