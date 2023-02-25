@@ -56,4 +56,8 @@ public class Enumeracion {
             {"TGX", "TGS", "TGM", "TGL", "Lion's City"}
     };
 
+    public final static String[] nombres = {"Lucía", "Carlos", "María", "David", "Sofía", "Javier", "Ana", "Pedro", "Elena", "Adrián"};
+    public final static String[] apellidos = {"García", "Rodríguez", "Pérez", "Fernández", "López", "Martínez", "González", "Sánchez", "Romero", "Torres"};
+    public final static String[] materias = {"Programación", "Bases de Datos", "Diseño Web", "Lenguaje de Marcas", "Entornos de Desarrollo", "Desarrollo de Interfaces", "Empresa e Iniciativa Emprendedora", "Inglés Técnico", "Sistemas Informáticos", "Desarrollo de Aplicaciones Multiplataforma"};
+
 }
