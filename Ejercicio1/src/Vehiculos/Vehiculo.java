@@ -33,6 +33,18 @@ public class Vehiculo {
         this.matricula = matricula;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
     public void setTipodeCarnet(String tipodeCarnet) {
         this.tipodeCarnet = tipodeCarnet;
     }
@@ -57,16 +69,25 @@ public class Vehiculo {
 
     @Override
     public String toString() {
+
+        String codigoColor = "\u001B[31m";
+        String marcaColoreada = marca.replace(marca, codigoColor + marca + "\u001B[0m");
+
         return "Vehiculo{" +
-                "marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", combustible='" + combustible + '\'' +
-                ", fechaMatriculacion='" + fechaMatriculacion + '\'' +
-                ", fechaEntradaConcesionario='" + fechaEntradaConcesionario + '\'' +
-                ", precio=" + precio +
-                ", tipodeCarnet='" + tipodeCarnet + '\'' +
-                ", peso=" + peso +
-                ", matricula='" + matricula + '\'' +
-                '}';
+                "marca='" + marcaColoreada + '\n' +
+                ", modelo='" + modelo + '\n' +
+                ", combustible='" + combustible + '\n' +
+                ", fechaMatriculacion='" + fechaMatriculacion + '\n' +
+                ", fechaEntradaConcesionario='" + fechaEntradaConcesionario + '\n' +
+                ", precio=" + precio +'\n'+
+                ", tipodeCarnet='" + tipodeCarnet + '\n' +
+                ", peso=" + peso +'\n'+
+                ", matricula='" + matricula + '\'';
+
+
+
+
+
+
     }
 }

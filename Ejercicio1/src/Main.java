@@ -23,10 +23,13 @@ public class Main {
         miConcesionario.setTotalMotos(0);
         miConcesionario.setTotalCoches(0);
         miConcesionario.setTotalFurgonetas(0);
+
         miConcesionario.setTotalCamiones(0);
 
         rellenarCampos(miConcesionario);
         do {
+        AlgoritmosOrdenación.bubbleSortMarca (miConcesionario);
+
             System.out.println("""
                          GESTION CONSCESIONARIO
                     0.Datos Empresa y Facturacion.     
@@ -59,7 +62,18 @@ public class Main {
 
                     entradaTeclado=br.readLine();
                     switch(Integer.parseInt(entradaTeclado)){
-                        case 1-> Concesionario.verVehiculos();
+                        case 1-> { System.out.println("""
+                                Elige una opcion:
+                            1.Ordenados por marca.
+                            2.Ordenados por precio.
+                            """);
+                            entradaTeclado=br.readLine();
+                            switch (Integer.parseInt(entradaTeclado)){
+                                case 1->AlgoritmosOrdenación.bubbleSortMarca(miConcesionario);
+                                case 2->AlgoritmosOrdenación.bubbleSortPrecio(miConcesionario);
+                            }
+                            Concesionario.verVehiculos();
+                        }
                         case 2 -> Concesionario.verMotos();
                         case 3 -> Concesionario.verCoches();
                         case 4 -> Concesionario.verFurgonetas();
