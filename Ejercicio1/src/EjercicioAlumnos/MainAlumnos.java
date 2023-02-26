@@ -5,13 +5,12 @@ import Utilidades.Enumeracion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+
 
 public class MainAlumnos {
     public static int id=0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String entradaTeclado;
         boolean continuar=true;
 
 
@@ -32,20 +31,18 @@ public class MainAlumnos {
                                         6.AÑADIR NOTA ALUMNO.
                                         7.BORRAR NOTA ALUMNO.
                                         8.VER SUSPENSOS POR MATERIA.
-                                        9.SALIR.      
+                                        9.SALIR.
                                         
                 """);
             switch(Integer.parseInt(br.readLine())){
-                case 1-> System.out.println(iesdeTeis.alumnosCentro.toString());
-                case 2-> System.out.println(iesdeTeis.materiasCentro.toString());
+                case 1->System.out.println(iesdeTeis.alumnosCentro.toString());
+                case 2->System.out.println(iesdeTeis.materiasCentro.toString());
                 case 3->verAlumnosporMateria(iesdeTeis);
-                case 4->System.out.println("ESTADISTICAS"+"\n");
-                case 5->System.out.println("VER SUSPENDIDOS"+"\n");
+                case 4->mostrarDatosAlumno(iesdeTeis);
+                case 5->mosstrarEstadisticasMateria(iesdeTeis);
                 case 6->añadirNota(iesdeTeis);
-
-
-
-
+                case 7->borrarNota(iesdeTeis);
+                case 8->verSuspensosMateria(iesdeTeis);
                 case 9->{
 
                     continuar=false;
@@ -57,8 +54,18 @@ public class MainAlumnos {
 
     }
 
+    private static void mosstrarEstadisticasMateria(Centro miCentro) {
+    }
 
-public static void verAlumnosporMateria(Centro miCentro)throws IOException {
+    private static void mostrarDatosAlumno(Centro miCentro) {
+    }
+
+    private static void verSuspensosMateria(Centro miCentro) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    }
+
+
+    public static void verAlumnosporMateria(Centro miCentro)throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));{
         System.out.println("Nombre de la materia/id?"+"\n");
         String entradaTeclado=br.readLine();

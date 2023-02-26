@@ -11,8 +11,8 @@ public class Centro {
     private String cp;
 
 
-    public static ArrayList<Materia> materiasCentro = new ArrayList<Materia>();
-    public static ArrayList<Alumno> alumnosCentro = new ArrayList<Alumno>();
+    public ArrayList<Materia> materiasCentro = new ArrayList<Materia>();
+    public ArrayList<Alumno> alumnosCentro = new ArrayList<Alumno>();
 
     public Centro(String tipo, String naturaleza, String codigo, String direccion, String cp) {
         this.tipo = tipo;
