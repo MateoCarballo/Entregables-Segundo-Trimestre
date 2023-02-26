@@ -61,12 +61,12 @@ public class Materia {
     public void notaAltayBaja(){
         for (int i = 0; i < alumnosMateria.size(); i++) {
             if(alumnosMateria.get(i).getNota()>notaAlta){
-                notaAlta=alumnosMateria.get(i).getNota();
+                setNotaAlta(alumnosMateria.get(i).getNota());
             }
         }
         for (int i = 0; i < alumnosMateria.size(); i++) {
             if(alumnosMateria.get(i).getNota()<notaBaja){
-                notaBaja=alumnosMateria.get(i).getNota();
+                setNotaBaja(alumnosMateria.get(i).getNota());
             }
         }
     }

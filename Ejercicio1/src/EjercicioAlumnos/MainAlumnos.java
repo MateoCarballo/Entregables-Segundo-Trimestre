@@ -66,7 +66,42 @@ public class MainAlumnos {
 
     }
 
-    private static void mostrarDatosAlumno(Centro miCentro) {
+    private static void mostrarDatosAlumno(Centro miCentro) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Nombre del alumno?");
+        String nombre= br.readLine();
+        System.out.println("Primer apellido del alumno?");
+        String ap1= br.readLine();
+        System.out.println("Segundo apellido del alumno?");
+        String ap2= br.readLine();
+
+
+        for (int i = 0; i < miCentro.alumnosCentro.size(); i++) {
+            if(miCentro.alumnosCentro.get(i).getNombre().equalsIgnoreCase(nombre)
+            &&miCentro.alumnosCentro.get(i).getApellido1().equalsIgnoreCase(ap1)
+            &&miCentro.alumnosCentro.get(i).getApellido2().equalsIgnoreCase(ap2)){
+                System.out.println("Datos Personales:");
+                System.out.println(miCentro.alumnosCentro.get(i).toString());
+            }
+        }
+
+
+        for (int i = 0; i < miCentro.materiasCentro.size(); i++) {
+            for (int j = 0; j < miCentro.materiasCentro.get(i).alumnosMateria.size(); j++) {
+
+                if((miCentro.alumnosCentro.get(i).getNombre().equalsIgnoreCase(nombre))
+                        && (miCentro.alumnosCentro.get(i).getApellido1().equalsIgnoreCase(ap1))
+                        && (miCentro.alumnosCentro.get(i).getApellido2().equalsIgnoreCase(ap2))){
+
+                    System.out.println("Notas:");
+                    System.out.print(miCentro.materiasCentro.get(i).getNombreMateria()+"-> ");
+                    System.out.print(miCentro.materiasCentro.get(i).alumnosMateria.get(j).getNota());
+                }
+
+            }
+
+
+        }
     }
 
     private static void verSuspensosMateria(Centro miCentro) throws IOException {
