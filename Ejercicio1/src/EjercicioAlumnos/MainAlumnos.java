@@ -13,7 +13,6 @@ public class MainAlumnos {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean continuar=true;
 
-
         Centro iesdeTeis= new Centro("Instituto de Educación Secundaria y Formación Profesional",
                 "Público","36018173","Avenida de Galicia, 101. Vigo (Pontevedra)","36216");
 
@@ -44,17 +43,27 @@ public class MainAlumnos {
                 case 7->borrarNota(iesdeTeis);
                 case 8->verSuspensosMateria(iesdeTeis);
                 case 9->{
-
                     continuar=false;
                 }
             }
         }
-
-
-
     }
 
-    private static void mosstrarEstadisticasMateria(Centro miCentro) {
+    private static void mosstrarEstadisticasMateria(Centro miCentro) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Nombre de la materia?");
+        String entradaTeclado= br.readLine();
+        for (int i = 0; i < miCentro.materiasCentro.size(); i++) {
+            if(miCentro.materiasCentro.get(i).getNombreMateria().equalsIgnoreCase(entradaTeclado)){
+                System.out.print("La nota media de los alumnos es -> ");
+                System.out.println(miCentro.materiasCentro.get(i).notaMediaMateria());
+                System.out.print("La nota mas alta es -> ");
+                System.out.println(miCentro.materiasCentro.get(i).getNotaAlta());
+                System.out.print("La nota mas baja es -> ");
+                System.out.println(miCentro.materiasCentro.get(i).getNotaBaja());
+            }
+        }
+
     }
 
     private static void mostrarDatosAlumno(Centro miCentro) {
@@ -62,21 +71,36 @@ public class MainAlumnos {
 
     private static void verSuspensosMateria(Centro miCentro) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Nombre de la materia/id?"+"\n");
+        String entradaTeclado=br.readLine();
+
+        for (int i = 0; i <miCentro.materiasCentro.size() ; i++) {
+            if(entradaTeclado.equalsIgnoreCase(miCentro.materiasCentro.get(i).getNombreMateria())){
+                System.out.println("Alumnos suspensos en la materia -> "+ entradaTeclado+"\n");
+
+            for (int j = 0; j < miCentro.materiasCentro.get(i).alumnosMateria.size(); j++) {
+                if(miCentro.materiasCentro.get(i).alumnosMateria.get(j).getNota()<5){
+
+                    System.out.println(miCentro.materiasCentro.get(i).alumnosMateria.get(j).getNombre()+" "+
+                            miCentro.materiasCentro.get(i).alumnosMateria.get(j).getApellido1()+" "+
+                            miCentro.materiasCentro.get(i).alumnosMateria.get(j).getApellido2());
+                }
+            }
+
+            }
+        }
     }
 
 
     public static void verAlumnosporMateria(Centro miCentro)throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre de la materia/id?"+"\n");
         String entradaTeclado=br.readLine();
         for (int i = 0; i <miCentro.materiasCentro.size() ; i++) {
             if(entradaTeclado.equalsIgnoreCase(miCentro.materiasCentro.get(i).getNombreMateria())){
                 System.out.println("Alumnos de la materia "+entradaTeclado);
                 System.out.println(miCentro.materiasCentro.get(i).alumnosMateria.toString());
-            }else{
-                System.out.println("Materia no encontrada vuelve a intentarlo");
             }
-        }
 
     }
 }
@@ -208,6 +232,13 @@ public class MainAlumnos {
             }
         }
 
+        //Rellenar las notas de los alumnos creados automaticamente
+
+        for (int i = 0; i < miCentro.materiasCentro.size(); i++) {
+            for (int j = 0; j <miCentro.materiasCentro.get(i).alumnosMateria.size(); j++) {
+                miCentro.materiasCentro.get(i).alumnosMateria.get(j).setNota(numAleatorioEntero(0,10));
+            }
+        }
 
     }
 }

@@ -9,6 +9,12 @@ public class Materia {
     private int codigoMateria= 12345;
     private String nombreMateria;
 
+    private float notaMedia;
+
+    private int notaAlta=Integer.MIN_VALUE;
+
+    private int notaBaja=Integer.MAX_VALUE;
+
     public static ArrayList<Alumno> alumnosMateria= new ArrayList<Alumno>();
 
     public Materia(String nombreMateria) {
@@ -19,8 +25,50 @@ public class Materia {
         return nombreMateria;
     }
 
-    public static void estadisticasMateria(){
+    public float getNotaMedia() {
+        return notaMedia;
+    }
 
+    public void setNotaMedia(float notaMedia) {
+        this.notaMedia = notaMedia;
+    }
+
+    public int getNotaAlta() {
+        return notaAlta;
+    }
+
+    public void setNotaAlta(int notaAlta) {
+        this.notaAlta = notaAlta;
+    }
+
+    public int getNotaBaja() {
+        return notaBaja;
+    }
+
+    public void setNotaBaja(int notaBaja) {
+        this.notaBaja = notaBaja;
+    }
+
+    public float notaMediaMateria(){
+        for (int i = 0; i < alumnosMateria.size(); i++) {
+            this.notaMedia += (float) (alumnosMateria.get(i).getNota());
+        }
+        this.notaMedia=this.notaMedia/alumnosMateria.size();
+        notaAltayBaja();
+        return notaMedia;
+    }
+
+    public void notaAltayBaja(){
+        for (int i = 0; i < alumnosMateria.size(); i++) {
+            if(alumnosMateria.get(i).getNota()>notaAlta){
+                notaAlta=alumnosMateria.get(i).getNota();
+            }
+        }
+        for (int i = 0; i < alumnosMateria.size(); i++) {
+            if(alumnosMateria.get(i).getNota()<notaBaja){
+                notaBaja=alumnosMateria.get(i).getNota();
+            }
+        }
     }
     @Override
     public String toString() {
