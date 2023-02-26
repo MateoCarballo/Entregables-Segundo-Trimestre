@@ -2,19 +2,57 @@ package EjercicioAlumnos;
 
 import java.util.ArrayList;
 
-public class Alumno extends BB_Persona {
+public class Alumno{
+    private int id;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String correoElectronico;
+    private String tfnContacto;
 
-    public static ArrayList<CC_Materia_paraAlumno> cursando = new ArrayList<CC_Materia_paraAlumno>();
+    private int nota;
 
-    public Alumno(int id, String nombre, String apellido1, String apellido2, String correoElectronico) {
-        super(id, nombre, apellido1, apellido2, correoElectronico);
+    public Alumno(int id, String nombre, String apellido1, String apellido2) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
     }
 
     @Override
     public String toString() {
-        System.out.println(super.toString());
-        return "CC_Alumno{" +
-                "cursando=" + cursando +
-                '}';
+        return "Alumno {" +
+                "id=" + id +
+                ", nombre='" + nombre + '\n' +
+                ", apellido1='" + apellido1 + '\n' +
+                ", apellido2='" + apellido2 + '\n' +
+                ", correoElectronico='" + correoElectronico + '\n' +
+                ", tfnContacto='" + tfnContacto + '\n' +
+                ", nota ='" + nota +'\n'+
+                '}'+'\n';
     }
 }

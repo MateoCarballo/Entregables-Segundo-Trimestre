@@ -12,7 +12,7 @@ public class Centro {
 
 
     public static ArrayList<Materia> materiasCentro = new ArrayList<Materia>();
-
+    public static ArrayList<Alumno> alumnosCentro = new ArrayList<Alumno>();
 
     public Centro(String tipo, String naturaleza, String codigo, String direccion, String cp) {
         this.tipo = tipo;
@@ -22,17 +22,14 @@ public class Centro {
         this.cp = cp;
     }
 
-    public static void verAlumnos(ArrayList <Alumno> alumnosCentro){
+
+
+    public static void verMateriasCentro(Centro miCentro){
+        miCentro.materiasCentro.toString();
+    }
+    public static void verAlumnosMateria(Centro miCentro, String nombreMateria){
 
     }
-    public static void verMaterias(ArrayList<Materia> materiasCentro){
-
-    }
-
-    public static void añadirNotaAlumno(){
-
-    }
-
     @Override
     public String toString() {
         return "BB_Centro{" +
