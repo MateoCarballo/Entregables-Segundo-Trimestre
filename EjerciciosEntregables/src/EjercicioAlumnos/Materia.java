@@ -49,6 +49,22 @@ public class Materia {
         this.notaBaja = notaBaja;
     }
 
+    public void addAlumno (Alumno miAlumno){
+        this.alumnosMateria.add(miAlumno);
+    }
+
+    public void borrarNotaAlumno(String nombre,String ap1,String ap2){
+        //TODO ojo con esto no se que estoy haciendo aquí CONSULTAR
+        for (int i = 0; i <this.alumnosMateria.size() ; i++) {
+            if((this.alumnosMateria.get(i).getNombre().equalsIgnoreCase(nombre))
+            &&(this.alumnosMateria.get(i).getApellido1().equalsIgnoreCase(ap1))
+            &&(this.alumnosMateria.get(i).getApellido2().equalsIgnoreCase(nombre))){
+                this.alumnosMateria.get(i).setNota(Integer.parseInt(null));
+            }
+        }
+
+    }
+
     public float notaMediaMateria(){
         for (int i = 0; i < alumnosMateria.size(); i++) {
             this.notaMedia += (float) (alumnosMateria.get(i).getNota());

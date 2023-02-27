@@ -5,6 +5,7 @@ import Utilidades.Enumeracion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 
 public class MainAlumnos {
@@ -14,7 +15,8 @@ public class MainAlumnos {
         boolean continuar=true;
 
         Centro iesdeTeis= new Centro("Instituto de Educación Secundaria y Formación Profesional",
-                "Público","36018173","Avenida de Galicia, 101. Vigo (Pontevedra)","36216");
+                "Público","36018173","Avenida de Galicia, 101. Vigo (Pontevedra)","36216",new ArrayList<>(),new ArrayList<>());
+
 
         rellenarCentro(iesdeTeis);
 
@@ -181,25 +183,13 @@ public class MainAlumnos {
         String ap1= br.readLine();
         System.out.println("Segundo apellido?");
         String ap2= br.readLine();
-
-
-        for (int i = 0; i <miCentro.materiasCentro.size() ; i++) {
-            if(miCentro.materiasCentro.get(i).getNombreMateria().equalsIgnoreCase(materia)){
-                for (int j = 0; j <miCentro.materiasCentro.get(i).alumnosMateria.size() ; j++) {
-
-                    if(miCentro.materiasCentro.get(i).alumnosMateria.get(i).getNombre().equalsIgnoreCase(nombre)
-                            &&miCentro.materiasCentro.get(i).alumnosMateria.get(i).getApellido1().equalsIgnoreCase(ap1)
-                            &&miCentro.materiasCentro.get(i).alumnosMateria.get(i).getApellido2().equalsIgnoreCase(ap2)){
-
-                        miCentro.materiasCentro.get(i).alumnosMateria.get(i).setNota(-1);
-                        System.out.println("Nota borrada con exito");
-                    }else{
-                        System.out.println("Alumno no encontrado");
-                    }
-                }
+        for (int i = 0; i < miCentro.getMateriasCentro().size(); i++) {
+            //Si coincide el nombre de la materia llamamos al metodo de esa materia para eliminar un alumno
+            if (miCentro.getMateriasCentro().get(i).getNombreMateria().equalsIgnoreCase(materia)) {
+                miCentro.getMateriasCentro().get(i).borrarNotaAlumno(nombre, ap1, ap2);
+                System.out.println("Nota borrada con exito");
             }
         }
-
     }
 
     public static int numAleatorioEntero(int limInferior, int limSuperior){
@@ -210,11 +200,7 @@ public class MainAlumnos {
         int cantidadAlumnos = 0;
         boolean alumnoValido=true;
 
-            /*
-            Matriz para gastar id consumidos y volver a buscar
-            otro alumno para completar los alumnos que cursen la materia
-            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-             */
+
 
 
 
@@ -222,19 +208,30 @@ public class MainAlumnos {
         cantidadAlumnos = numAleatorioEntero(50, 200);
 
         for (int i = 0; i < cantidadAlumnos; i++) {
-            miCentro.alumnosCentro.add(new Alumno(id,
+            miCentro.añadirAlumnoCentro(miCentro,
                     Enumeracion.nombres[numAleatorioEntero(0, 9)],
                     Enumeracion.apellidos[numAleatorioEntero(0, 9)],
-                    Enumeracion.apellidos[numAleatorioEntero(0, 9)]));
+                    Enumeracion.apellidos[numAleatorioEntero(0, 9)],
+                    id);
             id += 1;
         }
+        ArrayList<Materia> misMaterias=new ArrayList<>();
 
         // RELLENAR LAS MATERIAS DEL CENTRO
         for (int i = 0; i < Enumeracion.materias.length; i++) {
 
-            miCentro.materiasCentro.add(new Materia(Enumeracion.materias[i]));
+            miCentro.añadirMateriasCentro(miCentro,Enumeracion.materias[i]);
+
+             misMaterias=miCentro.getMateriasCentro();
+
+            Materia miMateria= misMaterias.get(i);
 
             cantidadAlumnos = numAleatorioEntero(1, 15);
+             /*
+            Matriz para gastar id consumidos y volver a buscar
+            otro alumno para completar los alumnos que cursen la materia
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+             */
 
             int [] alumnosGastados= new int[cantidadAlumnos];
 
@@ -243,8 +240,7 @@ public class MainAlumnos {
                 //1. Coger alumno aleatorio entre todos los que tiene el centro
                 Alumno miCandidato;
                 do {
-                    miCandidato = miCentro.alumnosCentro.get(numAleatorioEntero(0, miCentro.alumnosCentro.size()-1));
-
+                    miCandidato = miCentro.devolverCandidato(numAleatorioEntero(0,cantidadAlumnos));
 
                 //2. Asegurar que no hemos cogido un alumno que ya está matriculado en la materia
                     for (int k = 0; k < alumnosGastados.length; k++) {
@@ -253,12 +249,20 @@ public class MainAlumnos {
                         }else{
                             alumnoValido=true;
                             alumnosGastados[k]=miCandidato.getId();
+                            miCentro.añadirAlumnoMateria(miCandidato,miMateria,i);
                         }
                     }
                 } while (!alumnoValido);
 
-                //3. Añadir al alumno a la materia
-                miCentro.materiasCentro.get(i).alumnosMateria.add(miCandidato);
+                /*
+                3. AÑADIR ALUMNO A LA MATERIA
+                3.1 Copiar la materia(un elemento de la lista)
+                en miMateria(la obtenemos con getter)
+                3.2 Si el alumno es válido, llamamos a un método del centro que añade un alumno a una materia
+                y desde ese método(pasándole como parámetros en que materia y que alumno) añadimos en la materia
+                que corresponde el alumno que queremos.
+                3.3 Completado
+                 */
             }
 
             //4. Vaciar la matriz de consumidos
@@ -267,11 +271,11 @@ public class MainAlumnos {
             }
         }
 
-        //Rellenar las notas de los alumnos creados automaticamente
+        //Rellenar las notas de los alumnos creados automáticamente
 
-        for (int i = 0; i < miCentro.materiasCentro.size(); i++) {
-            for (int j = 0; j <miCentro.materiasCentro.get(i).alumnosMateria.size(); j++) {
-                miCentro.materiasCentro.get(i).alumnosMateria.get(j).setNota(numAleatorioEntero(0,10));
+        for (int i = 0; i < misMaterias.size() ; i++) {
+            for (int j = 0; j <miCentro.getMateriasCentro().get(i).alumnosMateria.size(); j++) {
+                miCentro.getMateriasCentro().get(i).alumnosMateria.get(j).setNota(numAleatorioEntero(0,10));
             }
         }
 
