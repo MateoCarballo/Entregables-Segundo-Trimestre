@@ -15,7 +15,7 @@ public class Materia {
 
     private int notaBaja=Integer.MAX_VALUE;
 
-    public static ArrayList<Alumno> alumnosMateria= new ArrayList<Alumno>();
+    private ArrayList<Alumno> alumnosMateria= new ArrayList<>();
 
     public Materia(String nombreMateria) {
         this.nombreMateria = nombreMateria;
@@ -76,6 +76,10 @@ public class Materia {
         }
     }
 
+    public void verAlumnos(){
+        this.alumnosMateria.toString();
+    }
+
     public float notaMediaMateria(){
         for (int i = 0; i < alumnosMateria.size(); i++) {
             this.notaMedia += (float) (alumnosMateria.get(i).getNota());
@@ -97,13 +101,12 @@ public class Materia {
             }
         }
     }
+
     @Override
     public String toString() {
-        return "Materia{" +'\n'+
-                "horasLectivas=" + horasLectivas +'\n'+
-                ", codigoMateria=" + codigoMateria +'\n'+
-                ", nombreMateria='" + nombreMateria + '\n' +
-                '}'+'\n';
+        return "Materia{" +
+                "alumnosMateria=" + alumnosMateria +
+                '}';
     }
 }
 

@@ -130,17 +130,16 @@ public class MainAlumnos {
 
 
     public static void verAlumnosporMateria(Centro miCentro)throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Nombre de la materia/id?"+"\n");
-        String entradaTeclado=br.readLine();
-        for (int i = 0; i <miCentro.materiasCentro.size() ; i++) {
-            if(entradaTeclado.equalsIgnoreCase(miCentro.materiasCentro.get(i).getNombreMateria())){
-                System.out.println("Alumnos de la materia "+entradaTeclado);
-                System.out.println(miCentro.materiasCentro.get(i).alumnosMateria.toString());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Materia?");
+        String materia = br.readLine();
+        for (int i = 0; i < miCentro.getMateriasCentro().size(); i++) {
+            //Si coincide el nombre de la materia llamamos al metodo de esa materia para eliminar un alumno
+            if (miCentro.getMateriasCentro().get(i).getNombreMateria().equalsIgnoreCase(materia)) {
+                miCentro.getMateriasCentro().get(i).verAlumnos();
             }
-
+        }
     }
-}
         public static void añadirNota(Centro miCentro)throws IOException {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
