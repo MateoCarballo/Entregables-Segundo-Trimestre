@@ -53,6 +53,12 @@ public class Centro {
         this.materiasCentro.get(indice).addAlumno(miAlumno);
     }
 
+    public void mostrarDatosAlumnos(){
+        for (int i = 0; i < alumnosCentro.size(); i++) {
+            this.alumnosCentro.get(i).toString();
+        }
+    }
+
 
     @Override
     public String toString() {

@@ -76,54 +76,17 @@ public class MainAlumnos {
         String ap1= br.readLine();
         System.out.println("Segundo apellido del alumno?");
         String ap2= br.readLine();
-
-
-        for (int i = 0; i < miCentro.alumnosCentro.size(); i++) {
-            if(miCentro.alumnosCentro.get(i).getNombre().equalsIgnoreCase(nombre)
-            &&miCentro.alumnosCentro.get(i).getApellido1().equalsIgnoreCase(ap1)
-            &&miCentro.alumnosCentro.get(i).getApellido2().equalsIgnoreCase(ap2)){
-                System.out.println("Datos Personales:");
-                System.out.println(miCentro.alumnosCentro.get(i).toString());
-            }
-        }
-
-
-        for (int i = 0; i < miCentro.materiasCentro.size(); i++) {
-            for (int j = 0; j < miCentro.materiasCentro.get(i).alumnosMateria.size(); j++) {
-
-                if((miCentro.alumnosCentro.get(i).getNombre().equalsIgnoreCase(nombre))
-                        && (miCentro.alumnosCentro.get(i).getApellido1().equalsIgnoreCase(ap1))
-                        && (miCentro.alumnosCentro.get(i).getApellido2().equalsIgnoreCase(ap2))){
-
-                    System.out.println("Notas:");
-                    System.out.print(miCentro.materiasCentro.get(i).getNombreMateria()+"-> ");
-                    System.out.print(miCentro.materiasCentro.get(i).alumnosMateria.get(j).getNota());
-                }
-
-            }
-
-
-        }
+        miCentro.mostrarDatosAlumnos();
     }
 
     private static void verSuspensosMateria(Centro miCentro) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Nombre de la materia/id?"+"\n");
-        String entradaTeclado=br.readLine();
-
-        for (int i = 0; i <miCentro.materiasCentro.size() ; i++) {
-            if(entradaTeclado.equalsIgnoreCase(miCentro.materiasCentro.get(i).getNombreMateria())){
-                System.out.println("Alumnos suspensos en la materia -> "+ entradaTeclado+"\n");
-
-            for (int j = 0; j < miCentro.materiasCentro.get(i).alumnosMateria.size(); j++) {
-                if(miCentro.materiasCentro.get(i).alumnosMateria.get(j).getNota()<5){
-
-                    System.out.println(miCentro.materiasCentro.get(i).alumnosMateria.get(j).getNombre()+" "+
-                            miCentro.materiasCentro.get(i).alumnosMateria.get(j).getApellido1()+" "+
-                            miCentro.materiasCentro.get(i).alumnosMateria.get(j).getApellido2());
-                }
-            }
-
+        System.out.println("Materia?");
+        String materia = br.readLine();
+        for (int i = 0; i < miCentro.getMateriasCentro().size(); i++) {
+            //Si coincide el nombre de la materia llamamos al metodo de esa materia para eliminar un alumno
+            if (miCentro.getMateriasCentro().get(i).getNombreMateria().equalsIgnoreCase(materia)) {
+                miCentro.getMateriasCentro().get(i).verSuspensos();
             }
         }
     }

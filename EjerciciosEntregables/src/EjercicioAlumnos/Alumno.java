@@ -45,14 +45,14 @@ public class Alumno{
 
     @Override
     public String toString() {
-        return "Alumno {" +
+        return "Alumno{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\n' +
-                ", apellido1='" + apellido1 + '\n' +
-                ", apellido2='" + apellido2 + '\n' +
-                ", correoElectronico='" + correoElectronico + '\n' +
-                ", tfnContacto='" + tfnContacto + '\n' +
-                ", nota ='" + nota +'\n'+
-                '}'+'\n';
+                ", nombre='" + nombre + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", tfnContacto='" + tfnContacto + '\'' +
+                ", nota=" + nota +
+                '}';
     }
 }

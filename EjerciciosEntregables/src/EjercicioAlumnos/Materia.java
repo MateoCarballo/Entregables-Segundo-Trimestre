@@ -80,6 +80,13 @@ public class Materia {
         this.alumnosMateria.toString();
     }
 
+    public void verSuspensos(){
+        for (int i = 0; i <this.alumnosMateria.size(); i++) {
+            if(this.alumnosMateria.get(i).getNota()<5){
+                this.alumnosMateria.toString();
+            }
+        }
+    }
     public float notaMediaMateria(){
         for (int i = 0; i < alumnosMateria.size(); i++) {
             this.notaMedia += (float) (alumnosMateria.get(i).getNota());
