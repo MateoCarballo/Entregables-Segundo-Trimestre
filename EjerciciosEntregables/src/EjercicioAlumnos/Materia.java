@@ -58,11 +58,22 @@ public class Materia {
         for (int i = 0; i <this.alumnosMateria.size() ; i++) {
             if((this.alumnosMateria.get(i).getNombre().equalsIgnoreCase(nombre))
             &&(this.alumnosMateria.get(i).getApellido1().equalsIgnoreCase(ap1))
-            &&(this.alumnosMateria.get(i).getApellido2().equalsIgnoreCase(nombre))){
+            &&(this.alumnosMateria.get(i).getApellido2().equalsIgnoreCase(ap2))){
                 this.alumnosMateria.get(i).setNota(Integer.parseInt(null));
             }
         }
 
+    }
+
+    public void añadirNotaAlumno(String nombre,String ap1,String ap2,int nota){
+        for (int i = 0; i <this.alumnosMateria.size() ; i++) {
+            if((this.alumnosMateria.get(i).getNombre().equalsIgnoreCase(nombre))
+                    &&(this.alumnosMateria.get(i).getApellido1().equalsIgnoreCase(ap1))
+                    &&(this.alumnosMateria.get(i).getApellido2().equalsIgnoreCase(ap2))){
+
+                this.alumnosMateria.get(i).setNota(nota);
+            }
+        }
     }
 
     public float notaMediaMateria(){

@@ -155,18 +155,11 @@ public class MainAlumnos {
             System.out.println("Nota?");
             String nota = br.readLine();
 
-            for (int i = 0; i <miCentro.materiasCentro.size() ; i++) {
-                if(miCentro.materiasCentro.get(i).getNombreMateria().equalsIgnoreCase(materia)){
-                    for (int j = 0; j <miCentro.materiasCentro.get(i).alumnosMateria.size() ; j++) {
-
-                        if(miCentro.materiasCentro.get(i).alumnosMateria.get(i).getNombre().equalsIgnoreCase(nombre)
-                                &&miCentro.materiasCentro.get(i).alumnosMateria.get(i).getApellido1().equalsIgnoreCase(ap1)
-                                &&miCentro.materiasCentro.get(i).alumnosMateria.get(i).getApellido2().equalsIgnoreCase(ap2)){
-
-                            miCentro.materiasCentro.get(i).alumnosMateria.get(i).setNota(Integer.parseInt(nota));
-
-                        }
-                    }
+            for (int i = 0; i < miCentro.getMateriasCentro().size(); i++) {
+                //Si coincide el nombre de la materia llamamos al metodo de esa materia para eliminar un alumno
+                if (miCentro.getMateriasCentro().get(i).getNombreMateria().equalsIgnoreCase(materia)) {
+                    miCentro.getMateriasCentro().get(i).añadirNotaAlumno(nombre, ap1, ap2,Integer.parseInt(nota));
+                    System.out.println("Nota borrada con exito");
                 }
             }
 
