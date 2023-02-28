@@ -35,20 +35,31 @@ public class MainAlumnos {
                                         9.SALIR.
                                         
                 """);
+
+            /*
+            TODO cuando printeo los alumnos aparecen con una nota aunque no debería ser así printeandolo desde la lista de alumnos del centro
+             deberian aparecen solo los datos personales cuando la printeamos por cada
+             materia si que deberia aparecer la nota tienen una nota para que aparezca en la lista
+             de alumnos
+
+            DUDA 1:
+            ¿Cómo tener dos "toString" ?
+            DUDA 2:
+            ¿Debería tener una clase heredada de alumno que tenga una nota como atributo a mayores?
+            Aunque yo queria que cada alumno que pertence al ArrayList dentro de cada materia pertenezcan al Centro
+             */
+
             switch(Integer.parseInt(br.readLine())){
                 case 1->{
                 ArrayList<Alumno> misAlumnos= iesdeTeis.getAlumnosCentro();
                     for (int i = 0; i < misAlumnos.size(); i++) {
-                        misAlumnos.toString();
+                        System.out.println(misAlumnos.get(i).toString());
                     }
                 }
-                    
-
-                
                 case 2->{
                    ArrayList<Materia> misMaterias=iesdeTeis.getMateriasCentro();
                     for (int i = 0; i < misMaterias.size(); i++) {
-                        misMaterias.toString();
+                        System.out.println(misMaterias.get(i).toString());
                     }
                 }
                 case 3->verAlumnosporMateria(iesdeTeis);
@@ -77,16 +88,40 @@ public class MainAlumnos {
     }
 
     private static void mostrarDatosAlumno(Centro miCentro) throws IOException {
+        boolean printeado = false;
+//TODO no soy capaz de printear los datos de un alumno
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre del alumno?");
-        String nombre= br.readLine();
+        String nombre = br.readLine();
         System.out.println("Primer apellido del alumno?");
-        String ap1= br.readLine();
+        String ap1 = br.readLine();
         System.out.println("Segundo apellido del alumno?");
-        String ap2= br.readLine();
-        miCentro.mostrarDatosAlumnos();
-    }
+        String ap2 = br.readLine();
+        System.out.println("id?");
+        String id = br.readLine();
+        for (int i = 0; i < miCentro.getAlumnosCentro().size(); i++) {
 
+            if ((miCentro.getAlumnosCentro().get(i).getId() == Integer.parseInt(id))) {
+                System.out.println(miCentro.mostrarDatosAlumno(miCentro.getAlumnosCentro().get(i)));
+                printeado = true;
+            }
+
+
+
+                if ((miCentro.getAlumnosCentro().get(i).getNombre().equalsIgnoreCase(nombre))
+                        && (miCentro.getAlumnosCentro().get(i).getNombre().equalsIgnoreCase(ap1))
+                        && (miCentro.getAlumnosCentro().get(i).getNombre().equalsIgnoreCase(ap2))) {
+                    System.out.println(miCentro.mostrarDatosAlumno(miCentro.getAlumnosCentro().get(i)));
+                    printeado = true;
+                }
+
+            }
+        if (printeado) {
+            System.out.println("Printeado con exito");
+        } else {
+            System.out.println("Alumno no encontrado compruebe los valores introducidos");
+        }
+    }
     private static void verSuspensosMateria(Centro miCentro) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Materia?");

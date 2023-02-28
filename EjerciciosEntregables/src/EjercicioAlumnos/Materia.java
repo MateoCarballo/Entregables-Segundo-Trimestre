@@ -128,8 +128,9 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" +
-                "alumnosMateria=" + alumnosMateria +
+        return nombreMateria +"\n"+
+                " Código de la materia "+ codigoMateria +
+                " alumnosMateria { " + alumnosMateria +
                 '}';
     }
 }

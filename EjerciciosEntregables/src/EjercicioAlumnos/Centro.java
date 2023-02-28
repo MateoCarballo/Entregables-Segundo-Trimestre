@@ -51,10 +51,13 @@ public class Centro {
 
     public void mostrarDatosAlumnos(){
         for (int i = 0; i < alumnosCentro.size(); i++) {
-            this.alumnosCentro.get(i).toString();
+             this.alumnosCentro.get(i).toString();
         }
     }
-
+    public String mostrarDatosAlumno(Alumno miAlumno){
+           String retornoString = miAlumno.toString();
+    return retornoString;
+    }
     public void escribirMaterias(ArrayList<Materia> misMaterias){
         for (int i = 0; i < materiasCentro.size(); i++) {
             materiasCentro.get(i).toString();
