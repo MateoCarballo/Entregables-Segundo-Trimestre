@@ -97,12 +97,18 @@ public class Materia {
         this.alumnosMateria.toString();
     }
 
-    public void verSuspensos(){
+    public ArrayList<Alumno> verSuspensos(ArrayList<Alumno> alumnosSuspensos){
+
+        for (int j =0; j < alumnosSuspensos.size(); j++) {
+            alumnosSuspensos.remove(j);
+        }
+
         for (int i = 0; i <this.alumnosMateria.size(); i++) {
             if(this.alumnosMateria.get(i).getNota()<5){
-                this.alumnosMateria.toString();
+                alumnosSuspensos.add(this.alumnosMateria.get(i));
             }
         }
+        return alumnosSuspensos;
     }
     private float notaMediaMateria(){
         for (int i = 0; i < alumnosMateria.size(); i++) {

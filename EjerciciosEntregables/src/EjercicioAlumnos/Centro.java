@@ -67,7 +67,7 @@ public class Centro {
 
     @Override
     public String toString() {
-        return "BB_Centro{" +
+        return "Centro{" +
                 "tipo='" + tipo + '\'' +
                 ", Naturaleza='" + Naturaleza + '\'' +
                 ", codigo='" + codigo + '\'' +

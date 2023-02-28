@@ -51,9 +51,10 @@ public class MainAlumnos {
 
             switch(Integer.parseInt(br.readLine())){
                 case 1->{
+                    ///Esto que es ¿?¿?¿??¿ explicaciones todos los bucles
                 ArrayList<Alumno> misAlumnos= iesdeTeis.getAlumnosCentro();
-                    for (int i = 0; i < misAlumnos.size(); i++) {
-                        System.out.println(misAlumnos.get(i).toString());
+                    for (Alumno misAlumno : misAlumnos) {
+                        System.out.println(misAlumno.toString());
                     }
                 }
                 case 2->{
@@ -89,7 +90,7 @@ public class MainAlumnos {
 
     private static void mostrarDatosAlumno(Centro miCentro) throws IOException {
         boolean printeado = false;
-//TODO no soy capaz de printear los datos de un alumno
+        //TODO no soy capaz de printear los datos de un alumno
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre del alumno?");
         String nombre = br.readLine();
@@ -99,14 +100,16 @@ public class MainAlumnos {
         String ap2 = br.readLine();
         System.out.println("id?");
         String id = br.readLine();
-        for (int i = 0; i < miCentro.getAlumnosCentro().size(); i++) {
+        ArrayList<Alumno> alumnosDelCentro=miCentro.getAlumnosCentro();
+        for (int i = 0; i < alumnosDelCentro.size(); i++) {
 
-            if ((miCentro.getAlumnosCentro().get(i).getId() == Integer.parseInt(id))) {
+            if ((alumnosDelCentro.get(i).getId() == Integer.parseInt(id))) {
                 System.out.println(miCentro.mostrarDatosAlumno(miCentro.getAlumnosCentro().get(i)));
                 printeado = true;
             }
 
 
+                //TODO de esta forma de abajo no funciona no se por qué
 
                 if ((miCentro.getAlumnosCentro().get(i).getNombre().equalsIgnoreCase(nombre))
                         && (miCentro.getAlumnosCentro().get(i).getNombre().equalsIgnoreCase(ap1))
@@ -126,12 +129,31 @@ public class MainAlumnos {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Materia?");
         String materia = br.readLine();
+        ArrayList<Alumno> alumnosSuspensos=new ArrayList<>();
+
         for (int i = 0; i < miCentro.getMateriasCentro().size(); i++) {
-            //Si coincide el nombre de la materia llamamos al metodo de esa materia para eliminar un alumno
-            if (miCentro.getMateriasCentro().get(i).getNombreMateria().equalsIgnoreCase(materia)) {
-                miCentro.getMateriasCentro().get(i).verSuspensos();
+
+            if ( miCentro.getMateriasCentro().get(i).getNombreMateria().equalsIgnoreCase(materia)) {
+                alumnosSuspensos= miCentro.getMateriasCentro().get(i).verSuspensos(alumnosSuspensos);
+
+
+
             }
         }
+        for (int j = 0; j < alumnosSuspensos.size() ; j++) {
+            System.out.println(alumnosSuspensos.get(j).toString());
+        }
+        /*
+        for (int i = 0; i < miCentro.getMateriasCentro().size(); i++) {
+            Materia materiaCandidata =miCentro.getMateriasCentro().get(i);
+            if ( materiaCandidata.getNombreMateria().equalsIgnoreCase(materia)) {
+                ArrayList<Alumno> alumnosSuspensos = miCentro.getMateriasCentro().get(i).verSuspensos();
+                for (int j = 0; j < alumnosSuspensos.size() ; j++) {
+                    System.out.println(alumnosSuspensos.get(j).toString());
+                }
+            }
+        }
+         */
     }
 
 
