@@ -36,11 +36,24 @@ public class MainAlumnos {
                                         
                 """);
             switch(Integer.parseInt(br.readLine())){
-                case 1->System.out.println(iesdeTeis.alumnosCentro.toString());
-                case 2->System.out.println(iesdeTeis.materiasCentro.toString());
+                case 1->{
+                ArrayList<Alumno> misAlumnos= iesdeTeis.getAlumnosCentro();
+                    for (int i = 0; i < misAlumnos.size(); i++) {
+                        iesdeTeis.getAlumnosCentro().get(i).toString();
+                    }
+                }
+                    
+
+                
+                case 2->{
+                   ArrayList<Materia> misMaterias=iesdeTeis.getMateriasCentro();
+                    for (int i = 0; i < misMaterias.size(); i++) {
+                        iesdeTeis.getMateriasCentro().get(i).toString();
+                    }
+                }
                 case 3->verAlumnosporMateria(iesdeTeis);
                 case 4->mostrarDatosAlumno(iesdeTeis);
-                case 5->mosstrarEstadisticasMateria(iesdeTeis);
+                case 5->mostrarEstadisticasMateria(iesdeTeis);
                 case 6->añadirNota(iesdeTeis);
                 case 7->borrarNota(iesdeTeis);
                 case 8->verSuspensosMateria(iesdeTeis);
@@ -51,21 +64,16 @@ public class MainAlumnos {
         }
     }
 
-    private static void mosstrarEstadisticasMateria(Centro miCentro) throws IOException {
+    private static void mostrarEstadisticasMateria(Centro miCentro) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre de la materia?");
         String entradaTeclado= br.readLine();
-        for (int i = 0; i < miCentro.materiasCentro.size(); i++) {
-            if(miCentro.materiasCentro.get(i).getNombreMateria().equalsIgnoreCase(entradaTeclado)){
-                System.out.print("La nota media de los alumnos es -> ");
-                System.out.println(miCentro.materiasCentro.get(i).notaMediaMateria());
-                System.out.print("La nota mas alta es -> ");
-                System.out.println(miCentro.materiasCentro.get(i).getNotaAlta());
-                System.out.print("La nota mas baja es -> ");
-                System.out.println(miCentro.materiasCentro.get(i).getNotaBaja());
+        ArrayList<Materia> misMaterias= miCentro.getMateriasCentro();
+        for (int i = 0; i < misMaterias.size() ; i++) {
+            if (misMaterias.get(i).getNombreMateria().equalsIgnoreCase(entradaTeclado)){
+                misMaterias.get(i).mostrarEstadisticasMateria(misMaterias.get(i));
             }
         }
-
     }
 
     private static void mostrarDatosAlumno(Centro miCentro) throws IOException {

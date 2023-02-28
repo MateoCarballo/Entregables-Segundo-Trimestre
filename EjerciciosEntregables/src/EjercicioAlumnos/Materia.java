@@ -76,6 +76,19 @@ public class Materia {
         }
     }
 
+    public static void mostrarEstadisticasMateria(Materia miMateria){
+
+            //TODO no se si es la mejor forma de hacerlo consultar María/Alejandro
+
+                System.out.print("La nota media de los alumnos es -> ");
+                System.out.println(miMateria.notaMediaMateria());
+                System.out.print("La nota mas alta es -> ");
+                miMateria.notaAltayBaja();
+                System.out.println(miMateria.notaAlta);
+                System.out.print("La nota mas baja es -> ");
+                System.out.println(miMateria.notaBaja);
+    }
+
     public void verAlumnos(){
         this.alumnosMateria.toString();
     }
@@ -87,7 +100,7 @@ public class Materia {
             }
         }
     }
-    public float notaMediaMateria(){
+    private float notaMediaMateria(){
         for (int i = 0; i < alumnosMateria.size(); i++) {
             this.notaMedia += (float) (alumnosMateria.get(i).getNota());
         }

@@ -3,6 +3,7 @@ package EjercicioAlumnos;
 import java.util.ArrayList;
 
 public class Alumno{
+    //El id podria ser el NIF
     private int id;
     private String nombre;
     private String apellido1;

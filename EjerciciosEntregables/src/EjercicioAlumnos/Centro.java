@@ -1,10 +1,6 @@
 package EjercicioAlumnos;
 
-import Utilidades.Enumeracion;
-
 import java.util.ArrayList;
-
-import static EjercicioAlumnos.MainAlumnos.numAleatorioEntero;
 
 public class Centro {
 
@@ -59,6 +55,12 @@ public class Centro {
         }
     }
 
+    public void escribirMaterias(ArrayList<Materia> misMaterias){
+        for (int i = 0; i < materiasCentro.size(); i++) {
+            materiasCentro.get(i).toString();
+        }
+
+    }
 
     @Override
     public String toString() {
