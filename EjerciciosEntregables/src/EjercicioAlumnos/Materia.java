@@ -25,6 +25,10 @@ public class Materia {
         return nombreMateria;
     }
 
+    public ArrayList<Alumno> getAlumnosMateria() {
+        return alumnosMateria;
+    }
+
     public float getNotaMedia() {
         return notaMedia;
     }

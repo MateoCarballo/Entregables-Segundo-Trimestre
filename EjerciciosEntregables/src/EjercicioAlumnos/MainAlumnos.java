@@ -39,7 +39,7 @@ public class MainAlumnos {
                 case 1->{
                 ArrayList<Alumno> misAlumnos= iesdeTeis.getAlumnosCentro();
                     for (int i = 0; i < misAlumnos.size(); i++) {
-                        iesdeTeis.getAlumnosCentro().get(i).toString();
+                        misAlumnos.toString();
                     }
                 }
                     
@@ -48,7 +48,7 @@ public class MainAlumnos {
                 case 2->{
                    ArrayList<Materia> misMaterias=iesdeTeis.getMateriasCentro();
                     for (int i = 0; i < misMaterias.size(); i++) {
-                        iesdeTeis.getMateriasCentro().get(i).toString();
+                        misMaterias.toString();
                     }
                 }
                 case 3->verAlumnosporMateria(iesdeTeis);
@@ -237,8 +237,8 @@ public class MainAlumnos {
         //Rellenar las notas de los alumnos creados automáticamente
 
         for (int i = 0; i < misMaterias.size() ; i++) {
-            for (int j = 0; j <miCentro.getMateriasCentro().get(i).alumnosMateria.size(); j++) {
-                miCentro.getMateriasCentro().get(i).alumnosMateria.get(j).setNota(numAleatorioEntero(0,10));
+            for (int j = 0; j <miCentro.getMateriasCentro().get(i).getAlumnosMateria().size(); j++) {
+                miCentro.getMateriasCentro().get(i).getAlumnosMateria().get(j).setNota(numAleatorioEntero(0,10));
             }
         }
 
